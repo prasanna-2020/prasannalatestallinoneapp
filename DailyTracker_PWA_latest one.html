@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#080a12">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DailyTracker">
+<title>Daily Tracker Pro</title>
+<link rel="manifest" id="pwa-manifest">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" sizes="192x192" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════
+   LIGHT THEME
+═══════════════════════════════ */
+body.theme-light{
+  --bg:#f0f2ff;
+  --bg2:#e8eaf6;
+  --surface:#ffffff;
+  --surface2:#f5f6ff;
+  --surface3:#ebedf8;
+  --border:#dde0f0;
+  --border2:#c8cbdf;
+  --text:#1a1c2e;
+  --text-dim:#5a5e7e;
+  --text-faint:#9096b8;
+
+  --indigo:#4f46e5;
+  --indigo-glow:rgba(79,70,229,.2);
+  --violet:#7c3aed;
+  --emerald:#059669;
+  --emerald-glow:rgba(5,150,105,.2);
+  --amber:#d97706;
+  --rose:#e11d48;
+  --sky:#0284c7;
+  --teal:#0d9488;
+
+  --ca:#4f46e5;
+  --ca-soft:rgba(79,70,229,.08);
+  --ca-border:rgba(79,70,229,.2);
+  --da:#059669;
+  --da-soft:rgba(5,150,105,.08);
+  --da-border:rgba(5,150,105,.2);
+  --ta:#b45309;
+  --ta-soft:rgba(180,83,9,.07);
+  --ta-border:rgba(180,83,9,.2);
+}
+body.theme-light::before{
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 0%,rgba(79,70,229,.04) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 35% at 90% 100%,rgba(5,150,105,.03) 0%,transparent 55%);
+}
+body.theme-light .app-header{
+  background:rgba(240,242,255,.92);
+}
+body.theme-light .bottom-nav{
+  background:rgba(240,242,255,.95);
+}
+body.theme-light .modal{
+  background:var(--surface);
+}
+body.theme-light .card{
+  box-shadow:0 2px 16px rgba(79,70,229,.06);
+}
+body.theme-light .item-row{
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+}
+body.theme-light .inp{
+  background:#f8f9ff;
+  color:var(--text);
+}
+body.theme-light .stats-strip{
+  background:linear-gradient(180deg,#ffffff 0%,#f0f2ff 100%);
+}
+body.theme-light .mode-tabs{
+  background:#e8eaf6;
+}
+body.theme-light .panch-card{
+  background:linear-gradient(135deg,rgba(180,83,9,.05),rgba(180,83,9,.02));
+}
+
+/* ═══════════════════════════════
+   DESIGN SYSTEM — Premium Dark
+═══════════════════════════════ */
+:root{
+  /* Backgrounds */
+  --bg:#080a12;
+  --bg2:#0d0f1a;
+  --surface:#111420;
+  --surface2:#161926;
+  --surface3:#1c2030;
+  --border:#232740;
+  --border2:#2d3250;
+
+  /* Text */
+  --text:#eef0fb;
+  --text-dim:#7b82a8;
+  --text-faint:#3a4060;
+
+  /* Accents */
+  --indigo:#6366f1;
+  --indigo-glow:rgba(99,102,241,.35);
+  --violet:#8b5cf6;
+  --emerald:#10b981;
+  --emerald-glow:rgba(16,185,129,.3);
+  --amber:#f59e0b;
+  --rose:#f43f5e;
+  --sky:#38bdf8;
+  --teal:#14b8a6;
+
+  /* Common mode = indigo */
+  --ca:#6366f1;
+  --ca-soft:rgba(99,102,241,.12);
+  --ca-border:rgba(99,102,241,.28);
+
+  /* Daily mode = emerald */
+  --da:#10b981;
+  --da-soft:rgba(16,185,129,.1);
+  --da-border:rgba(16,185,129,.25);
+
+  /* Tamil = amber-gold */
+  --ta:#f59e0b;
+  --ta-soft:rgba(245,158,11,.1);
+  --ta-border:rgba(245,158,11,.25);
+
+  --radius:14px;
+  --radius-sm:9px;
+  --sans:'Outfit',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --nav-h:64px;
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --hdr-h:120px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{height:100%;overflow:hidden;}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  height:100%;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+
+/* Ambient light */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 0%,rgba(99,102,241,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 35% at 90% 100%,rgba(16,185,129,.04) 0%,transparent 55%),
+    radial-gradient(ellipse 30% 25% at 50% 50%,rgba(139,92,246,.03) 0%,transparent 50%);
+}
+
+/* ── STATUS BAR ── */
+.status-bar-spacer{height:var(--safe-t);background:var(--bg);flex-shrink:0;z-index:10;}
+
+/* ══════════════════════════════
+   HEADER — glass morphism
+══════════════════════════════ */
+.app-header{
+  flex-shrink:0;z-index:20;position:relative;
+  background:rgba(13,15,26,.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:12px 16px 0;
+}
+
+.header-top{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;gap:10px;
+}
+.logo-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
+.hdr-btns{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.logo-mark{
+  width:34px;height:34px;
+  background:linear-gradient(135deg,var(--indigo),var(--violet));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-weight:600;font-size:15px;color:#fff;
+  box-shadow:0 0 20px var(--indigo-glow);
+  flex-shrink:0;
+}
+.logo-text{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:-.3px;color:var(--text);}
+.logo-sub{font-size:9px;color:var(--text-faint);letter-spacing:.8px;text-transform:uppercase;margin-top:1px;}
+.hdr-icon-btn{
+  width:36px;height:36px;border:1px solid var(--border);background:var(--surface2);
+  border-radius:10px;cursor:pointer;color:var(--text-dim);
+  display:flex;align-items:center;justify-content:center;
+  -webkit-appearance:none;transition:all .2s;flex-shrink:0;
+}
+.hdr-icon-btn:active{border-color:var(--ca);color:var(--ca);background:var(--ca-soft);}
+
+/* Date nav (daily only) */
+.date-nav-row{
+  display:none;align-items:center;gap:8px;
+  padding-bottom:8px;
+}
+.date-nav-row.show{display:flex;}
+.date-display{flex:1;min-width:0;}
+.date-main{
+  font-family:var(--mono);font-size:13px;font-weight:600;
+  color:var(--da);
+}
+.date-sub{font-size:10px;color:var(--text-faint);margin-top:1px;}
+.date-controls{display:flex;align-items:center;gap:5px;}
+.nav-arrow{
+  width:32px;height:32px;
+  border:1px solid var(--border2);background:var(--surface2);
+  border-radius:8px;cursor:pointer;color:var(--text-dim);font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-appearance:none;transition:all .15s;
+}
+.nav-arrow:active{border-color:var(--da);color:var(--da);background:var(--da-soft);}
+.today-pill{
+  padding:6px 12px;background:transparent;
+  border:1px solid var(--da-border);border-radius:8px;
+  color:var(--da);font-size:11px;font-family:var(--mono);cursor:pointer;
+  -webkit-appearance:none;
+}
+.today-pill:active{background:var(--da-soft);}
+
+/* Mode switcher tabs */
+.mode-tabs{
+  display:flex;gap:3px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:11px;padding:3px;
+  margin-bottom:12px;
+}
+.mode-tab{
+  flex:1;padding:9px 6px;border:none;border-radius:9px;cursor:pointer;
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  background:transparent;color:var(--text-faint);
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  -webkit-appearance:none;transition:all .2s;
+}
+.mode-tab .ti{font-size:14px;}
+.mode-tab.m-common{color:var(--ca);}
+.mode-tab.m-daily{color:var(--da);}
+.mode-tab.m-tamil{color:var(--ta);}
+.mode-tab.active.m-common{background:var(--ca);color:#fff;box-shadow:0 2px 14px var(--indigo-glow);}
+.mode-tab.active.m-daily{background:var(--da);color:#000;box-shadow:0 2px 14px var(--emerald-glow);}
+.mode-tab.active.m-tamil{background:var(--ta);color:#000;box-shadow:0 2px 14px rgba(245,158,11,.3);}
+.mode-tab:active{opacity:.8;}
+
+/* ── DAILY STATS STRIP ── */
+.stats-strip{
+  display:none;
+  grid-template-columns:repeat(3,1fr);
+  background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%);
+  border-bottom:1px solid var(--da-border);
+  flex-shrink:0;z-index:9;position:relative;
+}
+.stats-strip::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--da),transparent);
+  opacity:.5;
+}
+.stats-strip.show{display:grid;}
+.stat-cell{
+  padding:9px 12px 8px;
+  border-right:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.stat-cell:last-child{border-right:none;}
+.stat-cell::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1.5px;border-radius:2px;opacity:.8;}
+.stat-cell.sc-task::after{background:var(--rose);}
+.stat-cell.sc-rem::after{background:var(--violet);}
+.stat-cell.sc-exp::after{background:var(--emerald);}
+.stat-v{font-family:var(--mono);font-size:18px;font-weight:700;line-height:1;}
+.stat-cell.sc-task .stat-v{color:var(--rose);text-shadow:0 0 20px rgba(244,63,94,.4);}
+.stat-cell.sc-rem .stat-v{color:var(--violet);text-shadow:0 0 20px rgba(139,92,246,.4);}
+.stat-cell.sc-exp .stat-v{color:var(--emerald);text-shadow:0 0 20px rgba(16,185,129,.4);}
+.stat-l{font-size:9px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.6px;margin-top:3px;}
+.stat-s{font-size:9px;color:var(--text-dim);margin-top:1px;}
+
+/* ── MAIN SCROLL ── */
+.main-scroll{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;position:relative;z-index:1;
+}
+.main-scroll::-webkit-scrollbar{display:none;}
+.screen-wrap{padding:14px 14px 20px;max-width:720px;margin:0 auto;}
+
+/* ── MODE SCREENS ── */
+.screen{display:none;}
+.screen.active{display:block;}
+
+/* ── DAILY PANELS ── */
+.panel{display:none;}
+.panel.active{display:block;}
+
+/* ── COMMON PANELS ── */
+.cpanel{display:none;}
+.cpanel.active{display:block;}
+
+/* ══════════════════════════════
+   BOTTOM NAV
+══════════════════════════════ */
+.bottom-nav{
+  background:rgba(13,15,26,.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--border);
+  display:flex;flex-shrink:0;z-index:10;
+  padding-bottom:var(--safe-b);
+  height:calc(var(--nav-h) + var(--safe-b));
+}
+.bnav-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px;border:none;
+  background:transparent;color:var(--text-faint);
+  cursor:pointer;font-family:var(--sans);
+  -webkit-appearance:none;user-select:none;
+  position:relative;
+}
+.bnav-btn:active{opacity:.6;}
+.bnav-btn.active{color:var(--ca);}
+.nav-daily .bnav-btn.active{color:var(--da);}
+.bnav-icon{font-size:19px;line-height:1;}
+.bnav-lbl{font-size:10px;font-weight:500;}
+.bnav-pip{
+  width:3px;height:3px;border-radius:50%;
+  background:currentColor;margin-bottom:1px;
+  opacity:0;transition:opacity .2s;
+}
+.bnav-btn.active .bnav-pip{opacity:1;}
+
+/* ══════════════════════════════
+   CARDS
+══════════════════════════════ */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;margin-bottom:12px;
+  position:relative;overflow:hidden;
+}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;}
+.screen-common .card::before{background:linear-gradient(90deg,var(--indigo),var(--violet),transparent);}
+.screen-daily .card::before{background:linear-gradient(90deg,var(--emerald),var(--teal),transparent);}
+.screen-tamil .card::before{background:linear-gradient(90deg,var(--amber),var(--rose),transparent);}
+.card:last-child{margin-bottom:0;}
+.card-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.card-title-row{display:flex;align-items:center;gap:8px;}
+.card-pip{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.pip-rose{background:var(--rose);box-shadow:0 0 7px var(--rose);}
+.pip-violet{background:var(--violet);box-shadow:0 0 7px var(--violet);}
+.pip-emerald{background:var(--emerald);box-shadow:0 0 7px var(--emerald);}
+.pip-sky{background:var(--sky);box-shadow:0 0 7px var(--sky);}
+.pip-amber{background:var(--amber);box-shadow:0 0 7px var(--amber);}
+.pip-teal{background:var(--teal);box-shadow:0 0 7px var(--teal);}
+.pip-indigo{background:var(--indigo);box-shadow:0 0 7px var(--indigo);}
+.card-title{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text);}
+.card-badge{font-size:10px;color:var(--text-dim);background:var(--surface2);padding:2px 8px;border-radius:20px;border:1px solid var(--border);}
+
+/* ══════════════════════════════
+   INPUTS
+══════════════════════════════ */
+.inp-block{margin-bottom:12px;}
+.inp-row{display:flex;gap:8px;margin-bottom:8px;}
+.inp-aux{display:flex;gap:8px;}
+.inp{
+  width:100%;padding:11px 13px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius-sm);color:var(--text);
+  font-size:16px;font-family:var(--sans);outline:none;
+  -webkit-appearance:none;transition:border-color .15s;
+}
+.inp:focus{border-color:var(--ca);}
+.screen-daily .inp:focus{border-color:var(--da);}
+.inp::placeholder{color:var(--text-faint);}
+select.inp{cursor:pointer;}
+textarea.inp{resize:none;line-height:1.5;}
+
+.add-btn{
+  flex-shrink:0;width:46px;height:46px;
+  border:none;border-radius:var(--radius-sm);
+  font-size:22px;font-weight:700;cursor:pointer;
+  -webkit-appearance:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.screen-common .add-btn,.screen .add-btn{background:var(--ca);color:#fff;}
+.screen-common .add-btn:active{background:var(--violet);}
+.screen-daily .add-btn{background:var(--da);color:#000;}
+.screen-daily .add-btn:active{background:#0ea472;}
+
+/* ══════════════════════════════
+   ITEM ROWS
+══════════════════════════════ */
+.item-row{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 13px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius-sm);margin-bottom:8px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.item-row:last-child{margin-bottom:0;}
+.item-row:hover{border-color:var(--border2);box-shadow:0 2px 12px rgba(0,0,0,.2);}
+.item-row.item-done{opacity:.4;}
+.item-row.item-done .item-text{text-decoration:line-through;color:var(--text-dim);}
+
+/* Checkbox */
+.chk{
+  width:22px;height:22px;min-width:22px;
+  border:1.5px solid var(--border2);border-radius:6px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  background:transparent;transition:all .15s;flex-shrink:0;
+}
+.chk.on{background:var(--emerald);border-color:var(--emerald);box-shadow:0 0 10px rgba(16,185,129,.35);}
+.chk.on::after{content:'✓';font-size:12px;color:#000;font-weight:700;}
+.screen-common .chk.on{background:var(--ca);border-color:var(--ca);box-shadow:0 0 10px var(--indigo-glow);}
+.screen-common .chk.on::after{color:#fff;}
+
+.item-text{flex:1;font-size:14px;word-break:break-word;line-height:1.4;}
+
+/* Priority badges */
+.pri{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;flex-shrink:0;}
+.pri-hi{background:rgba(244,63,94,.14);color:var(--rose);border:1px solid rgba(244,63,94,.2);}
+.pri-md{background:rgba(245,158,11,.14);color:var(--amber);border:1px solid rgba(245,158,11,.2);}
+.pri-lo{background:rgba(16,185,129,.14);color:var(--emerald);border:1px solid rgba(16,185,129,.2);}
+
+/* Carried badge */
+.badge-carried{font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(56,189,248,.1);color:var(--sky);font-family:var(--mono);flex-shrink:0;border:1px solid rgba(56,189,248,.2);}
+
+/* Del / Edit buttons */
+.act-btn{
+  width:32px;height:32px;min-width:32px;background:none;border:none;
+  color:var(--text-faint);cursor:pointer;border-radius:7px;font-size:16px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  -webkit-appearance:none;transition:all .15s;
+}
+.act-btn:active{background:var(--surface3);}
+.act-btn.del:active{color:var(--rose);background:rgba(244,63,94,.12);}
+.act-btn.edit{color:var(--sky);opacity:.6;}
+.act-btn.edit:active{opacity:1;background:rgba(56,189,248,.12);}
+
+/* Reminder extra info */
+.rem-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:5px;}
+.rem-time{font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;background:rgba(139,92,246,.12);color:var(--violet);font-family:var(--mono);border:1px solid rgba(139,92,246,.2);}
+.rem-time.overdue{background:rgba(244,63,94,.12);color:var(--rose);border-color:rgba(244,63,94,.25);}
+
+/* ── PROGRESS BAR ── */
+.prog-wrap{margin-bottom:12px;}
+.prog-top{display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-bottom:5px;}
+.prog-track{height:4px;background:var(--surface3);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--da),var(--teal));border-radius:3px;transition:width .4s ease;}
+
+/* ── EXPENSE SUMMARY ── */
+.exp-summary{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--da-soft);border:1px solid var(--da-border);
+  border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:12px;
+}
+.exp-total-val{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--emerald);}
+.exp-total-lbl{font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;}
+.exp-item-row{display:flex;align-items:center;gap:9px;padding:11px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;}
+.exp-desc{flex:1;font-size:14px;word-break:break-word;}
+.exp-amt{font-family:var(--mono);font-weight:700;color:var(--emerald);font-size:14px;flex-shrink:0;}
+.cat-chip{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;flex-shrink:0;}
+.c-food{background:rgba(245,158,11,.14);color:var(--amber);}
+.c-travel{background:rgba(56,189,248,.14);color:var(--sky);}
+.c-work{background:rgba(99,102,241,.14);color:var(--indigo);}
+.c-health{background:rgba(16,185,129,.14);color:var(--emerald);}
+.c-other{background:rgba(123,130,168,.14);color:var(--text-dim);}
+
+/* ── PHONE ── */
+.phone-row{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;}
+.ph-avatar{width:36px;height:36px;min-width:36px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;color:#fff;box-shadow:0 0 12px var(--indigo-glow);}
+.ph-info{flex:1;min-width:0;}
+.ph-name{font-size:14px;font-weight:500;}
+.ph-num{font-size:12px;color:var(--text-dim);font-family:var(--mono);margin-top:2px;}
+.ph-tag{font-size:10px;font-weight:600;padding:1px 6px;border-radius:10px;background:var(--ca-soft);color:var(--ca);margin-left:6px;}
+.ph-call{width:34px;height:34px;min-width:34px;display:flex;align-items:center;justify-content:center;background:rgba(16,185,129,.12);border-radius:8px;font-size:17px;text-decoration:none;color:var(--emerald);border:1px solid var(--da-border);}
+.ph-call:active{background:var(--da-soft);}
+
+/* ── BUY LIST ── */
+.filter-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.fpill{padding:5px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--text-dim);font-size:12px;cursor:pointer;-webkit-appearance:none;font-family:var(--sans);transition:all .15s;}
+.fpill.on{background:var(--ca);border-color:var(--ca);color:#fff;}
+.fpill:active{opacity:.7;}
+.buy-row{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;}
+.buy-row.bought{opacity:.4;}
+.buy-row.bought .item-text{text-decoration:line-through;}
+.buy-qty{font-size:10px;font-family:var(--mono);color:var(--text-dim);background:var(--surface);padding:2px 6px;border-radius:10px;flex-shrink:0;border:1px solid var(--border);}
+.buy-icon{font-size:16px;flex-shrink:0;}
+
+/* ── LINKS ── */
+.link-row{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;}
+.link-fav{width:22px;height:22px;min-width:22px;border-radius:5px;background:var(--surface3);object-fit:contain;}
+.link-info{flex:1;min-width:0;}
+.link-title{color:var(--sky);text-decoration:none;font-size:14px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.link-domain{font-size:10px;color:var(--text-faint);margin-top:2px;}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:32px 20px;color:var(--text-faint);font-size:13px;font-family:var(--mono);}
+.empty-icon{font-size:30px;margin-bottom:10px;opacity:.6;}
+
+/* ══════════════════════════════
+   DAY SUMMARY
+══════════════════════════════ */
+.summary-card{
+  background:var(--da-soft);border:1px solid var(--da-border);
+  border-radius:var(--radius);padding:14px;margin-bottom:14px;
+}
+.summary-title{font-size:10px;font-family:var(--mono);font-weight:600;color:var(--da);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;}
+.summary-btns{display:flex;gap:6px;flex-wrap:wrap;}
+.sum-btn{
+  padding:6px 13px;border-radius:20px;
+  border:1px solid var(--da-border);
+  background:transparent;color:var(--da);
+  font-size:12px;cursor:pointer;font-family:var(--sans);
+  -webkit-appearance:none;transition:all .15s;
+}
+.sum-btn:active{background:var(--da-soft);}
+.summary-result{
+  margin-top:10px;padding:12px;background:var(--surface);border-radius:var(--radius-sm);
+  font-size:13px;line-height:1.75;color:var(--text);white-space:pre-wrap;
+  border:1px solid var(--da-border);display:none;
+}
+
+
+/* ════════════════════════════════
+   TAMIL CALENDAR — Rich Design
+════════════════════════════════ */
+.cal-view-tabs{
+  display:flex;gap:3px;background:var(--surface);border:1px solid var(--border);
+  border-radius:11px;padding:3px;margin-bottom:12px;
+}
+.cal-vtab{
+  flex:1;padding:8px 4px;border:none;border-radius:9px;cursor:pointer;
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  background:transparent;color:var(--text-faint);-webkit-appearance:none;transition:all .2s;
+}
+.cal-vtab.active{background:var(--ta);color:#000;box-shadow:0 2px 10px rgba(245,158,11,.3);}
+.cal-view{display:none;}
+.cal-view.active{display:block;}
+
+/* Month navigation */
+.cal-month-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;gap:8px;
+}
+.cal-month-title{flex:1;text-align:center;}
+
+/* Day of week row */
+.cal-dow-row{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px 8px 0 0;border-bottom:none;
+  margin-bottom:0;
+}
+.cal-dow{
+  text-align:center;font-size:10px;font-weight:700;
+  color:var(--text-faint);padding:6px 0;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:.3px;
+}
+.cal-dow.sun{color:var(--rose);}
+.cal-dow.sat{color:var(--sky);}
+
+/* Calendar grid — rich cells like reference */
+.cal-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  border:1px solid var(--border);border-radius:0 0 8px 8px;
+  overflow:hidden;margin-bottom:8px;
+}
+.cal-cell{
+  min-height:72px;
+  background:var(--surface2);
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:4px 4px 3px;cursor:pointer;
+  display:flex;flex-direction:column;gap:1px;
+  transition:background .15s;position:relative;
+  overflow:hidden;
+}
+.cal-cell:nth-child(7n){border-right:none;}
+.cal-cell:hover{background:var(--surface3);}
+.cal-cell.other-month{background:var(--bg);opacity:.35;pointer-events:none;}
+.cal-cell.today{
+  background:rgba(245,158,11,.08);
+  outline:2px solid var(--ta);
+  outline-offset:-1px;
+  z-index:2;
+}
+.cal-cell.sunday .cal-num{color:var(--rose)!important;}
+.cal-cell.saturday .cal-num{color:var(--sky)!important;}
+
+/* Cell top row: gregorian date + tithi */
+.cal-cell-top{display:flex;justify-content:space-between;align-items:baseline;}
+.cal-num{
+  font-size:17px;font-weight:700;line-height:1;
+  color:var(--text);
+}
+.cal-cell.today .cal-num{color:var(--ta);}
+.c-sun{color:var(--rose)!important;}
+.c-sat{color:var(--sky)!important;}
+.cal-tamil-day{
+  font-size:9px;font-weight:700;color:var(--ta);
+  font-family:var(--mono);line-height:1;
+}
+
+/* Nakshatra */
+.cal-naksh{
+  font-size:9px;color:var(--violet);font-weight:600;
+  line-height:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+
+/* Special auspicious badge */
+.cal-special-badge{
+  font-size:8px;font-weight:700;padding:1px 3px;border-radius:3px;
+  border:1px solid;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* Rahu kalam tiny */
+.cal-rahu-tiny{
+  font-size:7.5px;color:var(--rose);font-family:var(--mono);
+  line-height:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+  opacity:.8;
+}
+
+/* Dots */
+.cal-dots{display:flex;gap:2px;margin-top:auto;}
+.cal-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
+.cal-dot-task{background:var(--rose);}
+.cal-dot-exp{background:var(--emerald);}
+
+/* Legend */
+.cal-legend-row{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;color:var(--text-faint);flex-wrap:wrap;
+}
+.cl-box{display:inline-block;width:10px;height:10px;border-radius:2px;}
+.today-box{background:var(--ta);opacity:.6;}
+
+/* ── DAY VIEW ── */
+.cal-day-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;gap:10px;
+}
+/* Big date display like reference image 2 */
+.cdt-date{
+  font-size:52px;font-weight:900;line-height:1;
+  color:var(--rose);font-family:var(--mono);
+  text-shadow:0 2px 20px rgba(244,63,94,.3);
+  flex-shrink:0;
+}
+.cal-cell.saturday .cdt-date,.cdt-sat{color:var(--sky)!important;}
+.cdt-info{flex:1;}
+.cdt-month{font-size:14px;font-weight:700;color:var(--text);}
+.cdt-weekday{font-size:12px;color:var(--text-dim);margin-top:2px;}
+
+.cal-day-tamil{
+  background:var(--ta-soft);border:1px solid var(--ta-border);
+  border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:12px;
+  font-size:13px;color:var(--ta);
+}
+
+/* Special day banners */
+.cal-special-banner{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid;border-radius:8px;padding:10px 13px;
+  margin-bottom:8px;font-size:14px;font-weight:500;
+}
+.panch-alert-banner{
+  display:flex;align-items:center;gap:8px;
+  border:1px solid;border-radius:8px;padding:9px 12px;
+  margin-bottom:8px;font-size:13px;
+}
+
+/* Panchang details grid in day view */
+.pdg-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.pdg-cell{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:8px;padding:10px 12px;
+}
+.pdg-k{font-size:9px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-family:var(--mono);}
+.pdg-v{font-size:13px;font-weight:500;color:var(--text);line-height:1.4;}
+.pdg-v.good{color:var(--emerald);}
+.pdg-v.ta-accent{color:var(--ta);}
+
+/* Time row */
+.time-row{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:var(--radius-sm);
+  margin-bottom:6px;
+}
+.time-row.bad-time{background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.15);}
+.time-row.good-time{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);}
+.tr-dot{width:8px;height:8px;min-width:8px;border-radius:50%;flex-shrink:0;}
+.tr-dot.bad{background:var(--rose);box-shadow:0 0 6px rgba(244,63,94,.4);}
+.tr-dot.good{background:var(--emerald);box-shadow:0 0 6px rgba(16,185,129,.35);}
+.tr-info{flex:1;}
+.tr-name{font-size:13px;font-weight:600;}
+.tr-time{font-size:11px;font-family:var(--mono);color:var(--text-dim);margin-top:2px;}
+.tr-desc{font-size:10px;color:var(--text-faint);margin-top:1px;}
+.tr-remind-btn{
+  padding:5px 10px;background:var(--ta-soft);border:1px solid var(--ta-border);
+  border-radius:7px;color:var(--ta);font-size:11px;cursor:pointer;
+  font-family:var(--sans);white-space:nowrap;-webkit-appearance:none;flex-shrink:0;
+}
+.tr-remind-btn.good{background:var(--da-soft);border-color:var(--da-border);color:var(--da);}
+.tr-remind-btn:active{opacity:.7;}
+
+/* Day sections */
+.cal-day-section{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:13px;margin-bottom:10px;
+}
+.cal-sec-hd{
+  font-size:10px;font-weight:700;font-family:var(--mono);
+  color:var(--text-dim);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;
+}
+.cal-day-item{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 10px;background:var(--surface2);
+  border-radius:7px;margin-bottom:6px;font-size:13px;
+  border:1px solid var(--border);
+}
+.cal-day-item.done{opacity:.5;text-decoration:line-through;}
+.cal-day-item:last-child{margin-bottom:0;}
+
+.panch-card{
+  background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));
+  border:1px solid var(--ta-border);
+  border-radius:var(--radius);padding:16px;margin-bottom:12px;
+}
+.panch-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.panch-title{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ta);text-transform:uppercase;letter-spacing:.8px;}
+.panch-sub{font-size:10px;color:var(--text-faint);}
+.panch-fetch-btn{
+  padding:6px 14px;background:var(--ta);color:#000;border:none;
+  border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;
+  font-family:var(--sans);-webkit-appearance:none;
+}
+.panch-fetch-btn:active{opacity:.8;}
+.panch-fetch-btn:disabled{opacity:.4;cursor:not-allowed;}
+
+.panch-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  margin-bottom:12px;
+}
+.panch-cell{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:10px 12px;
+}
+.panch-key{font-size:9px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;font-family:var(--mono);}
+.panch-val{font-size:13px;font-weight:500;color:var(--text);}
+.panch-val.good{color:var(--emerald);}
+.panch-val.bad{color:var(--rose);}
+.panch-val.special{color:var(--amber);}
+.panch-full{grid-column:1/-1;}
+
+/* Time slots */
+.time-slots{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.time-slot{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;border-radius:var(--radius-sm);
+  background:var(--surface2);border:1px solid var(--border);
+}
+.slot-dot{width:8px;height:8px;min-width:8px;border-radius:50%;flex-shrink:0;}
+.slot-dot.good{background:var(--emerald);box-shadow:0 0 8px var(--emerald-glow);}
+.slot-dot.bad{background:var(--rose);box-shadow:0 0 8px rgba(244,63,94,.3);}
+.slot-dot.neutral{background:var(--amber);}
+.slot-info{flex:1;}
+.slot-name{font-size:13px;font-weight:500;}
+.slot-time{font-size:11px;color:var(--text-dim);font-family:var(--mono);margin-top:1px;}
+.slot-desc{font-size:10px;color:var(--text-faint);margin-top:2px;}
+.slot-add-rem{
+  padding:5px 10px;background:var(--ta-soft);border:1px solid var(--ta-border);
+  border-radius:7px;color:var(--ta);font-size:11px;cursor:pointer;
+  font-family:var(--sans);white-space:nowrap;-webkit-appearance:none;
+}
+.slot-add-rem:active{background:rgba(245,158,11,.2);}
+
+.panch-loading{text-align:center;padding:20px;color:var(--text-faint);font-size:13px;font-family:var(--mono);}
+.panch-loading .spin{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--ta);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px;}
+
+/* ══════════════════════════════
+   EDIT MODAL
+══════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(8,10,18,.88);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:none;align-items:center;justify-content:center;
+  padding:16px;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:20px;
+  padding:20px;width:100%;max-width:520px;
+  max-height:88vh;overflow-y:auto;
+}
+.modal-drag{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 16px;}
+.modal-title{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.modal-title .mt-icon{font-size:16px;}
+.modal-row{margin-bottom:12px;}
+.modal-lbl{font-size:11px;color:var(--text-dim);margin-bottom:5px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;}
+.modal-btns{display:flex;gap:8px;margin-top:20px;}
+.modal-save{
+  flex:1;padding:13px;background:var(--ca);border:none;border-radius:var(--radius-sm);
+  color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--sans);
+}
+.modal-save.daily-save{background:var(--da);color:#000;}
+.modal-save:active{opacity:.85;}
+.modal-cancel{
+  padding:13px 20px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius-sm);color:var(--text-dim);font-size:14px;cursor:pointer;
+  font-family:var(--sans);
+}
+.modal-cancel:active{background:var(--surface3);}
+
+/* ── OFFLINE / INSTALL BANNERS ── */
+.sys-banner{
+  border-radius:var(--radius-sm);margin-bottom:10px;
+  padding:9px 14px;font-size:12px;display:none;align-items:center;gap:8px;
+}
+.sys-banner.show{display:flex;}
+.offline-banner{background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.25);color:var(--rose);}
+.install-banner{background:var(--ca-soft);border:1px solid var(--ca-border);color:var(--text);}
+.install-banner-text{flex:1;font-size:12px;}
+.inst-btn{padding:7px 12px;background:var(--ca);border:none;border-radius:7px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:var(--sans);}
+.inst-close{width:24px;height:24px;background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+
+/* ── SPINNER / TOAST ── */
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{
+  position:fixed;bottom:calc(var(--nav-h) + var(--safe-b) + 14px);left:50%;
+  transform:translateX(-50%) translateY(12px);
+  background:var(--surface3);border:1px solid var(--border2);
+  border-radius:24px;padding:9px 18px;
+  font-size:13px;color:var(--text);
+  box-shadow:0 8px 40px rgba(0,0,0,.6);
+  opacity:0;transition:all .25s;z-index:400;
+  white-space:nowrap;max-width:calc(100vw - 40px);pointer-events:none;
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+/* ── DESKTOP ── */
+@media(min-width:640px){
+  html,body{overflow:auto;height:auto;}
+  .main-scroll{overflow:visible;flex:none;}
+  body{display:block;padding-bottom:0;}
+  .bottom-nav{display:none;}
+  .toast{bottom:20px;}
+  .screen-wrap{padding:18px 20px 24px;}
+  .dtab-row{display:flex;gap:4px;margin-bottom:14px;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:3px;width:fit-content;}
+  .dtab{padding:8px 16px;border-radius:9px;border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:500;background:transparent;color:var(--text-dim);-webkit-appearance:none;transition:all .15s;}
+  .screen-common .dtab.active{background:var(--ca);color:#fff;}
+  .screen-daily .dtab.active{background:var(--da);color:#000;}
+  .screen-tamil .dtab.active{background:var(--ta);color:#000;}
+  .dtab:not(.active):hover{color:var(--text);background:var(--surface2);}
+}
+@media(max-width:639px){.dtab-row{display:none;}}
+
+
+/* ── BOTTOM REMINDER SECTION in day view ── */
+.cal-remind-bottom{
+  background:var(--surface);border:1px solid var(--ta-border);
+  border-radius:var(--radius);padding:14px;margin-bottom:16px;
+}
+.cal-remind-bottom-title{
+  font-size:11px;font-weight:700;font-family:var(--mono);
+  color:var(--ta);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;
+}
+/* ── CALENDAR DAY REMINDER FORM ── */
+.cal-reminder-form{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:13px;}
+.cal-rem-add-btn{
+  padding:11px 18px;background:var(--ta);border:none;border-radius:8px;
+  color:#000;font-size:14px;font-weight:700;cursor:pointer;
+  font-family:var(--sans);-webkit-appearance:none;white-space:nowrap;flex-shrink:0;
+}
+.cal-rem-add-btn:active{opacity:.8;}
+
+/* ── FETCH MONTH ROW ── */
+.cal-fetch-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.cal-fetch-btn{
+  padding:8px 16px;background:var(--ta);border:none;border-radius:8px;
+  color:#000;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--sans);
+  -webkit-appearance:none;flex-shrink:0;
+}
+.cal-fetch-btn:disabled{opacity:.5;cursor:not-allowed;}
+.cal-fetch-btn:active{opacity:.8;}
+
+/* ── NALLA NERAM tiny in cell ── */
+.cal-nalla-tiny{
+  font-size:7px;color:var(--emerald);font-family:var(--mono);
+  line-height:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<div class="status-bar-spacer"></div>
+
+<!-- ══ HEADER ══ -->
+<div class="app-header">
+  <div class="header-top">
+    <div class="logo-wrap">
+      <div class="logo-mark">D</div>
+      <div>
+        <div class="logo-text">DailyTracker</div>
+        <div class="logo-sub">Pro · Chennai</div>
+      </div>
+    </div>
+    <div class="hdr-btns">
+      <button class="hdr-icon-btn" onclick="openSettings()" title="Settings">⚙️</button>
+      <button class="hdr-icon-btn" onclick="document.getElementById('storageModal').classList.add('open')" title="Data storage info">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+        </svg>
+      </button>
+      <button class="hdr-icon-btn theme-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle light/dark">🌙</button>
+    </div>
+  </div>
+
+  <!-- Mode tabs -->
+  <div class="mode-tabs">
+    <button class="mode-tab m-common active" id="tab-common" onclick="switchMode('common',this)">
+      <span class="ti">🌐</span><span>Common</span>
+    </button>
+    <button class="mode-tab m-daily" id="tab-daily" onclick="switchMode('daily',this)">
+      <span class="ti">📅</span><span>Daily</span>
+    </button>
+    <button class="mode-tab m-tamil" id="tab-tamil" onclick="switchMode('tamil',this)">
+      <span class="ti">🪔</span><span>Panchangam</span>
+    </button>
+  </div>
+
+  <!-- Date nav (daily mode) -->
+  <div class="date-nav-row" id="dateNavRow">
+    <div class="date-display">
+      <div class="date-main" id="datePill">—</div>
+      <div class="date-sub">Daily tracker</div>
+    </div>
+    <div class="date-controls">
+      <button class="nav-arrow" onclick="changeDate(-1)">←</button>
+      <button class="today-pill" onclick="goToday()">Today</button>
+      <button class="nav-arrow" onclick="changeDate(1)">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS STRIP (daily) ── -->
+<div class="stats-strip" id="statsStrip">
+  <div class="stat-cell sc-task">
+    <div class="stat-v" id="stTask">0</div>
+    <div class="stat-l">Tasks</div>
+    <div class="stat-s" id="stTaskD">0 done</div>
+  </div>
+  <div class="stat-cell sc-rem">
+    <div class="stat-v" id="stRem">0</div>
+    <div class="stat-l">Reminders</div>
+    <div class="stat-s" id="stRemD">0 pending</div>
+  </div>
+  <div class="stat-cell sc-exp">
+    <div class="stat-v" id="stExp">₹0</div>
+    <div class="stat-l">Spent</div>
+    <div class="stat-s" id="stExpD">0 entries</div>
+  </div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="main-scroll">
+<div class="screen-wrap">
+
+  <div class="sys-banner offline-banner" id="offlineBanner">⚠ Offline — app works, AI unavailable</div>
+  <div class="sys-banner install-banner" id="installBanner">
+    <div class="install-banner-text"><b>Add to Home Screen</b><br>Install for offline use &amp; native feel</div>
+    <button class="inst-btn" onclick="installPWA()">Install</button>
+    <button class="inst-close" onclick="dismissInstall()">×</button>
+  </div>
+
+  <!-- ════════════════ COMMON SCREEN ════════════════ -->
+  <div class="screen screen-common active" id="screen-common">
+    <div class="dtab-row">
+      <button class="dtab active" onclick="switchCP('phones',this)">📞 Phones</button>
+      <button class="dtab" onclick="switchCP('buylist',this)">🛒 Buy List</button>
+      <button class="dtab" onclick="switchCP('links',this)">🔗 Links</button>
+    </div>
+
+    <!-- PHONES -->
+    <div class="cpanel active" id="cp-phones">
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-title-row"><div class="card-pip pip-indigo"></div><div class="card-title">Phone Book</div></div>
+          <span class="card-badge" id="phoneCount">0 contacts</span>
+        </div>
+        <div class="inp-block">
+          <div class="inp-row">
+            <input class="inp" type="text" id="phoneName" placeholder="Name...">
+            <button class="add-btn" onclick="addPhone()">+</button>
+          </div>
+          <div class="inp-aux">
+            <input class="inp" type="tel" id="phoneNumber" placeholder="Phone number..." inputmode="tel" style="flex:2">
+            <input class="inp" type="text" id="phoneTag" placeholder="Tag" style="flex:1">
+          </div>
+        </div>
+        <input class="inp" type="search" id="phoneSearch" placeholder="🔍 Search..." oninput="renderPhones()" style="margin-bottom:12px;font-size:15px">
+        <div id="phoneList"><div class="empty-state"><div class="empty-icon">📞</div>No contacts yet</div></div>
+      </div>
+    </div>
+
+    <!-- BUY LIST -->
+    <div class="cpanel" id="cp-buylist">
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-title-row"><div class="card-pip pip-amber"></div><div class="card-title">Buy List</div></div>
+          <span class="card-badge" id="noteCount">0 items</span>
+        </div>
+        <div class="inp-block">
+          <div class="inp-row">
+            <input class="inp" type="text" id="noteInput" placeholder="Item to buy...">
+            <button class="add-btn" onclick="addBuyItem()">+</button>
+          </div>
+          <div class="inp-aux">
+            <select class="inp" id="buyCategory">
+              <option value="grocery">🍎 Groceries</option>
+              <option value="medicine">💊 Medicines</option>
+              <option value="electronics">📱 Electronics</option>
+              <option value="clothing">👔 Clothing</option>
+              <option value="home">🏠 Home</option>
+              <option value="other">📦 Other</option>
+            </select>
+            <input class="inp" type="number" id="buyQty" placeholder="Qty" min="1" style="flex:0.45;min-width:56px" inputmode="numeric">
+          </div>
+        </div>
+        <div class="filter-pills">
+          <button class="fpill on" onclick="filterBuy('all',this)">All</button>
+          <button class="fpill" onclick="filterBuy('grocery',this)">🍎</button>
+          <button class="fpill" onclick="filterBuy('medicine',this)">💊</button>
+          <button class="fpill" onclick="filterBuy('electronics',this)">📱</button>
+          <button class="fpill" onclick="filterBuy('clothing',this)">👔</button>
+          <button class="fpill" onclick="filterBuy('home',this)">🏠</button>
+          <button class="fpill" onclick="filterBuy('other',this)">📦</button>
+        </div>
+        <div id="buyList"><div class="empty-state"><div class="empty-icon">🛒</div>Nothing to buy yet</div></div>
+      </div>
+    </div>
+
+    <!-- LINKS -->
+    <div class="cpanel" id="cp-links">
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-title-row"><div class="card-pip pip-sky"></div><div class="card-title">Reference Links</div></div>
+          <span class="card-badge" id="linkCount">0 saved</span>
+        </div>
+        <div class="inp-block">
+          <div class="inp-row">
+            <input class="inp" type="text" id="linkTitle" placeholder="Link title...">
+            <button class="add-btn" onclick="addLink()">+</button>
+          </div>
+          <div class="inp-aux">
+            <input class="inp" type="url" id="linkUrl" placeholder="https://..." inputmode="url">
+          </div>
+        </div>
+        <input class="inp" type="search" id="linkSearch" placeholder="🔍 Search links..." oninput="renderLinks()" style="margin-bottom:12px;font-size:15px">
+        <div id="linkList"><div class="empty-state"><div class="empty-icon">🔗</div>No links saved</div></div>
+      </div>
+    </div>
+  </div><!-- /screen-common -->
+
+  <!-- ════════════════ DAILY SCREEN ════════════════ -->
+  <div class="screen screen-daily" id="screen-daily">
+    <!-- Day Summary -->
+    <div class="summary-card">
+      <div class="summary-title">📊 Day Summary</div>
+      <div class="summary-btns">
+        <button class="sum-btn" onclick="genSummary('all')">Full Day</button>
+        <button class="sum-btn" onclick="genSummary('tasks')">Tasks</button>
+        <button class="sum-btn" onclick="genSummary('expenses')">Expenses</button>
+        <button class="sum-btn" onclick="genSummary('reminders')">Reminders</button>
+      </div>
+      <div class="summary-result" id="summaryResult"><div id="summaryText"></div></div>
+    </div>
+
+    <div class="dtab-row">
+      <button class="dtab active" onclick="switchDP('tasks',this)">✓ Tasks</button>
+      <button class="dtab" onclick="switchDP('reminders',this)">🔔 Reminders</button>
+      <button class="dtab" onclick="switchDP('expenses',this)">₹ Expenses</button>
+    </div>
+
+    <!-- TASKS -->
+    <div class="panel active" id="dp-tasks">
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-title-row"><div class="card-pip pip-rose"></div><div class="card-title">To-Do List</div></div>
+          <span class="card-badge" id="todoCount">0 tasks</span>
+        </div>
+        <div class="prog-wrap" id="todoProg" style="display:none">
+          <div class="prog-top"><span>Progress</span><span id="todoPct">0%</span></div>
+          <div class="prog-track"><div class="prog-fill" id="todoFill" style="width:0%"></div></div>
+        </div>
+        <div class="inp-block">
+          <div class="inp-row">
+            <input class="inp" type="text" id="todoInput" placeholder="Add a task...">
+            <button class="add-btn" onclick="addTodo()">+</button>
+          </div>
+          <div class="inp-aux">
+            <select class="inp" id="todoPri">
+              <option value="med">⚡ Medium</option>
+              <option value="hi">🔴 High</option>
+              <option value="lo">🟢 Low</option>
+            </select>
+          </div>
+        </div>
+        <div id="todoList"><div class="empty-state"><div class="empty-icon">✓</div>No tasks yet</div></div>
+      </div>
+    </div>
+
+    <!-- REMINDERS -->
+    <div class="panel" id="dp-reminders">
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-title-row"><div class="card-pip pip-violet"></div><div class="card-title">Reminders</div></div>
+          <span class="card-badge" id="remCount">0 set</span>
+        </div>
+        <div class="inp-block">
+          <div class="inp-row">
+            <input class="inp" type="text" id="remInput" placeholder="Reminder for...">
+            <button class="add-btn" onclick="addReminder()">+</button>
+          </div>
+          <div class="inp-aux" style="flex-wrap:wrap;gap:6px">
+            <input class="inp" type="date" id="remDate" style="flex:1.5;min-width:130px">
+            <select class="inp" id="remHour" style="flex:0.7;min-width:64px">
+              <option>06</option><option>07</option><option>08</option>
+              <option>09</option><option>10</option><option>11</option>
+              <option>12</option><option>01</option><option>02</option>
+              <option>03</option><option>04</option><option>05</option>
+            </select>
+            <select class="inp" id="remMin" style="flex:0.7;min-width:64px">
+              <option>00</option><option>15</option><option>30</option><option>45</option>
+            </select>
+            <select class="inp" id="remAmPm" style="flex:0.6;min-width:56px">
+              <option>AM</option><option>PM</option>
+            </select>
+          </div>
+        </div>
+        <div id="remList"><div class="empty-state"><div class="empty-icon">🔔</div>No reminders set</div></div>
+      </div>
+    </div>
+
+    <!-- EXPENSES -->
+    <div class="panel" id="dp-expenses">
+      <div class="card">
+        <div class="card-hd">
+          <div class="card-title-row"><div class="card-pip pip-emerald"></div><div class="card-title">Expenses</div></div>
+        </div>
+        <div class="exp-summary">
+          <div><div class="exp-total-lbl">Total Today</div><div class="exp-total-val" id="expTotal">₹0.00</div></div>
+          <div style="text-align:center">
+            <button onclick="showExpTotal()" style="background:var(--da-soft);border:1px solid var(--da-border);border-radius:8px;color:var(--emerald);font-size:12px;font-weight:600;padding:6px 12px;cursor:pointer;font-family:var(--sans)">📊 All Time</button>
+          </div>
+          <div style="text-align:right"><div class="exp-total-lbl">Entries</div><div style="font-family:var(--mono);font-size:20px;color:var(--text)" id="expCount">0</div></div>
+        </div>
+        <div class="inp-block">
+          <div class="inp-row">
+            <input class="inp" type="text" id="expDesc" placeholder="Description...">
+            <button class="add-btn" onclick="addExpense()">+</button>
+          </div>
+          <div class="inp-aux">
+            <input class="inp" type="number" id="expAmt" placeholder="₹ Amount" step="0.01" min="0" inputmode="decimal" style="flex:1">
+            <select class="inp" id="expCat" style="flex:1">
+              <option value="food">🍔 Food</option>
+              <option value="travel">🚗 Travel</option>
+              <option value="work">💼 Work</option>
+              <option value="health">🏥 Health</option>
+              <option value="other">📦 Other</option>
+            </select>
+          </div>
+        </div>
+        <div id="expList"><div class="empty-state"><div class="empty-icon">₹</div>No expenses recorded</div></div>
+      </div>
+    </div>
+  </div><!-- /screen-daily -->
+
+  <!-- ════════════════ TAMIL CALENDAR SCREEN ════════════════ -->
+  <div class="screen screen-tamil" id="screen-tamil">
+
+    <!-- View toggle: Month / Day only -->
+    <div class="cal-view-tabs">
+      <button class="cal-vtab active" id="cvt-month" onclick="switchCalView('month',this)">📅 Month</button>
+      <button class="cal-vtab" id="cvt-day" onclick="switchCalView('day',this)">☀️ Day</button>
+    </div>
+
+    <!-- ── MONTH VIEW ── -->
+    <div class="cal-view active" id="calv-month">
+      <div class="cal-month-nav">
+        <button class="nav-arrow" onclick="calMonthShift(-1)">←</button>
+        <div class="cal-month-title" id="calMonthTitle"></div>
+        <button class="nav-arrow" onclick="calMonthShift(1)">→</button>
+      </div>
+      <div class="cal-fetch-row" id="calFetchRow">
+        <button id="fetchMonthBtn" class="cal-fetch-btn" onclick="fetchMonthPanchang()">🪔 Fetch Full Month</button>
+        <span id="fetchMonthStatus" style="font-size:11px;color:var(--text-faint)">Tap to load Rahu, Nakshatra &amp; Nalla Neram for all days</span>
+      </div>
+      <div class="cal-dow-row">
+        <div class="cal-dow sun">Sun</div>
+        <div class="cal-dow">Mon</div>
+        <div class="cal-dow">Tue</div>
+        <div class="cal-dow">Wed</div>
+        <div class="cal-dow">Thu</div>
+        <div class="cal-dow">Fri</div>
+        <div class="cal-dow sat">Sat</div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div id="calMonthLegend" style="margin-top:6px;font-size:10px;color:var(--text-faint)"></div>
+    </div>
+
+    <!-- ── DAY VIEW ── -->
+    <div class="cal-view" id="calv-day">
+      <!-- Nav with Today button -->
+      <div class="cal-day-nav">
+        <button class="nav-arrow" onclick="calDayShift(-1)">←</button>
+        <div id="calDayTitle" style="display:flex;align-items:center;gap:12px;flex:1;justify-content:center"></div>
+        <button class="today-pill" onclick="calGoToday()" style="font-size:11px;padding:6px 10px">Today</button>
+        <button class="nav-arrow" onclick="calDayShift(1)">→</button>
+      </div>
+      <div class="cal-day-tamil" id="calDayTamilDate"></div>
+      <div id="calDaySpecials"></div>
+
+      <!-- Panchang Details -->
+      <div class="cal-day-section">
+        <div class="cal-sec-hd">🪔 பஞ்சாங்கம் விவரம்</div>
+        <div id="calDayPanchGrid"></div>
+      </div>
+
+      <!-- Chandrastamam -->
+      <div class="cal-day-section" id="chandraSection" style="display:none">
+        <div class="cal-sec-hd" style="color:var(--violet)">🌙 சந்திராஷ்டமம் (Chandrastamam)</div>
+        <div id="chandraContent"></div>
+      </div>
+
+      <!-- Daily Timings — good times first, then bad -->
+      <div class="cal-day-section">
+        <div class="cal-sec-hd">⏰ நல்ல &amp; தவிர்க்க வேண்டிய நேரம்</div>
+        <div id="calDayTimings"></div>
+      </div>
+
+      <!-- Set Reminder — at bottom only (Change 7) -->
+      <div class="cal-remind-bottom">
+        <div class="cal-remind-bottom-title">🔔 இந்த நாளுக்கு நினைவூட்டல் சேர்க்க</div>
+        <div class="cal-reminder-form">
+          <input class="inp" type="text" id="calRemText" placeholder="Reminder text...">
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <select class="inp" id="calRemHour" style="flex:1">
+              <option value="06">06</option><option value="07">07</option>
+              <option value="08">08</option><option value="09">09</option>
+              <option value="10">10</option><option value="11">11</option>
+              <option value="12">12</option><option value="01">01</option>
+              <option value="02">02</option><option value="03">03</option>
+              <option value="04">04</option><option value="05">05</option>
+            </select>
+            <select class="inp" id="calRemMin" style="flex:1">
+              <option value="00">00</option><option value="15">15</option>
+              <option value="30">30</option><option value="45">45</option>
+            </select>
+            <select class="inp" id="calRemAmPm" style="flex:0.8">
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
+            <button class="cal-rem-add-btn" onclick="addReminderFromDayView()">+ Add</button>
+          </div>
+          <div id="calRemFeedback" style="font-size:12px;color:var(--emerald);margin-top:6px;display:none"></div>
+        </div>
+        <div style="font-size:11px;color:var(--text-faint);margin-top:6px">Saved to Daily → Reminders</div>
+      </div>
+    </div>
+
+    <!-- ── FULL PANCHANG VIEW ── -->
+    <div class="cal-view" id="calv-panch">
+      <div class="panch-card">
+        <div class="panch-hd">
+          <div>
+            <div class="panch-title">🪔 Tamil Panchangam</div>
+            <div class="panch-sub" id="panchDateLbl">—</div>
+          </div>
+          <button class="panch-fetch-btn" onclick="renderPanchFull(calDayDate)">Refresh</button>
+        </div>
+        <div id="panchData"></div>
+      </div>
+    </div>
+
+  </div><!-- /screen-tamil -->
+
+</div><!-- screen-wrap -->
+</div><!-- main-scroll -->
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav nav-common" id="bottomNav">
+  <button class="bnav-btn active" id="bn-phones" onclick="switchCP('phones',null,'bn-phones')">
+    <div class="bnav-pip"></div><div class="bnav-icon">📞</div><div class="bnav-lbl">Phones</div>
+  </button>
+  <button class="bnav-btn" id="bn-buylist" onclick="switchCP('buylist',null,'bn-buylist')">
+    <div class="bnav-pip"></div><div class="bnav-icon">🛒</div><div class="bnav-lbl">Buy</div>
+  </button>
+  <button class="bnav-btn" id="bn-links" onclick="switchCP('links',null,'bn-links')">
+    <div class="bnav-pip"></div><div class="bnav-icon">🔗</div><div class="bnav-lbl">Links</div>
+  </button>
+</nav>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editModal" onclick="closeModal(event)">
+  <div class="modal" onclick="e=>e.stopPropagation()">
+    <div class="modal-drag"></div>
+    <div class="modal-title"><span class="mt-icon" id="modalIcon">✏️</span><span id="modalTitle">Edit Item</span></div>
+    <div class="modal-row">
+      <div class="modal-lbl">Text</div>
+      <input class="inp" type="text" id="modalText" placeholder="...">
+    </div>
+    <div id="modalExtraFields"></div>
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="modal-save" id="modalSave" onclick="saveEdit()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXPENSE TOTAL MODAL -->
+<div class="modal-overlay" id="expTotalModal" onclick="closeExpTotal()">
+  <div class="modal" onclick="event.stopPropagation()" style="max-height:80vh;overflow-y:auto">
+    <div class="modal-drag"></div>
+    <div class="modal-title" style="justify-content:space-between">
+      <span>📊 Total Spend</span>
+      <button onclick="closeExpTotal()" style="background:none;border:none;color:var(--text-faint);font-size:22px;cursor:pointer;line-height:1">×</button>
+    </div>
+    <div id="expTotalContent"></div>
+  </div>
+</div>
+
+<!-- DATA STORAGE INFO MODAL -->
+<div class="modal-overlay" id="storageModal" onclick="document.getElementById('storageModal').classList.remove('open')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-drag"></div>
+    <div class="modal-title">💾 Where is my data stored?</div>
+    <div style="font-size:14px;line-height:1.9;color:var(--text-dim)">
+      <div style="background:var(--da-soft);border:1px solid var(--da-border);border-radius:10px;padding:14px;margin-bottom:12px;font-size:14px;color:var(--text)">
+        💾 All your data is stored <strong style="color:var(--emerald)">100% on your device</strong> — nothing is sent to any server.
+      </div>
+      <div style="background:rgba(245,158,11,.08);border:1px solid var(--ta-border);border-radius:10px;padding:14px;font-size:13px;color:var(--amber)">
+        ⚠️ Clearing browser data / uninstalling the app will delete your data. To keep data safe, use the same browser profile and avoid clearing site data.
+      </div>
+    </div>
+    <div class="modal-btns" style="margin-top:16px">
+      <button class="modal-save" onclick="document.getElementById('storageModal').classList.remove('open')" style="width:100%">Got it</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══════════════════════════════════
+   PWA SETUP
+══════════════════════════════════ */
+(function(){
+  const icons=[
+    {src:"data:image/png;base64,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",sizes:"192x192",type:"image/png"},
+    {src:"data:image/png;base64,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",sizes:"512x512",type:"image/png"}
+  ];
+  const m={name:"Daily Tracker Pro",short_name:"DailyTracker",start_url:"./",display:"standalone",orientation:"portrait",background_color:"#080a12",theme_color:"#080a12",categories:["productivity"],icons};
+  document.getElementById("pwa-manifest").href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:"application/manifest+json"}));
+})();
+if('serviceWorker'in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){console.log('[PWA] SW ready');}
+
+/* ── Online/offline ── */
+function updateOnline(){document.getElementById('offlineBanner').classList.toggle('show',!navigator.onLine);}
+window.addEventListener('online',updateOnline);window.addEventListener('offline',updateOnline);updateOnline();
+
+/* ── Install prompt ── */
+let deferredInstall=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;if(!localStorage.getItem('pwa_dismissed'))document.getElementById('installBanner').classList.add('show');});
+function installPWA(){if(!deferredInstall)return;deferredInstall.prompt();deferredInstall.userChoice.then(r=>{deferredInstall=null;document.getElementById('installBanner').classList.remove('show');if(r.outcome==='accepted')toast('App installed! ✓');});}
+function dismissInstall(){document.getElementById('installBanner').classList.remove('show');localStorage.setItem('pwa_dismissed','1');}
+
+/* ══════════════════════════════════
+   STATE & DATA
+══════════════════════════════════ */
+let currentDate=new Date();
+let data={};
+const SK='dailytracker_v4';
+try{const s=localStorage.getItem(SK);if(s)data=JSON.parse(s);}catch(e){}
+function getKey(d){return d.toISOString().split('T')[0];}
+function getDayData(){
+  const k=getKey(currentDate);
+  if(!data[k])data[k]={todos:[],reminders:[],expenses:[]};
+  // Carry-forward from past days into today
+  const todayKey=getKey(new Date());
+  if(k===todayKey){
+    const tidSet=new Set(data[k].todos.map(t=>t.id));
+    const ridSet=new Set(data[k].reminders.map(r=>r.id));
+    const eidSet=new Set(data[k].expenses.map(e=>e.id));
+    Object.keys(data).sort().forEach(pk=>{
+      if(pk>=todayKey)return;
+      const pd=data[pk];
+      // pending tasks only
+      (pd.todos||[]).forEach(t=>{if(!t.completed&&!tidSet.has(t.id)){data[k].todos.push({...t,carriedFrom:pk});tidSet.add(t.id);}});
+      // pending reminders only
+      (pd.reminders||[]).forEach(r=>{if(!r.done&&!ridSet.has(r.id)){data[k].reminders.push({...r,carriedFrom:pk});ridSet.add(r.id);}});
+      // ALL expenses always carry forward
+      (pd.expenses||[]).forEach(e=>{if(!eidSet.has(e.id)){data[k].expenses.push({...e,carriedFrom:pk});eidSet.add(e.id);}});
+    });
+    save();
+  }
+  return data[k];
+}
+function save(){try{localStorage.setItem(SK,JSON.stringify(data));}catch(e){}}
+
+/* Global stores */
+const PK='dt_phones_v1',BK='dt_buy_v1',LK='dt_links_v1';
+let phones=[],buyItems=[],linkItems=[];
+try{phones=JSON.parse(localStorage.getItem(PK)||'[]');}catch(e){}
+try{buyItems=JSON.parse(localStorage.getItem(BK)||'[]');}catch(e){}
+try{linkItems=JSON.parse(localStorage.getItem(LK)||'[]');}catch(e){}
+function saveP(){try{localStorage.setItem(PK,JSON.stringify(phones));}catch(e){}}
+function saveB(){try{localStorage.setItem(BK,JSON.stringify(buyItems));}catch(e){}}
+function saveL(){try{localStorage.setItem(LK,JSON.stringify(linkItems));}catch(e){}}
+
+/* ══════════════════════════════════
+   DATE & MODE
+══════════════════════════════════ */
+function formatDate(d){
+  if(window.innerWidth<640)return d.toLocaleDateString('en-IN',{weekday:'short',month:'short',day:'numeric'});
+  return d.toLocaleDateString('en-IN',{weekday:'long',month:'short',day:'numeric',year:'numeric'});
+}
+function changeDate(delta){const d=new Date(currentDate);d.setDate(d.getDate()+delta);currentDate=d;renderDailyScreen();}
+function goToday(){
+  currentDate=new Date();
+  // If not in daily mode, switch to it first
+  if(currentMode!=='daily'){
+    switchMode('daily',null);
+  } else {
+    renderDailyScreen();
+  }
+}
+
+let currentMode='common';
+function switchMode(mode,btn){
+  currentMode=mode;
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+mode).classList.add('active');
+  document.querySelectorAll('.mode-tab').forEach(t=>t.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  else document.getElementById('tab-'+mode).classList.add('active');
+  const isDaily=mode==='daily';
+  document.getElementById('dateNavRow').classList.toggle('show',isDaily);
+  document.getElementById('statsStrip').classList.toggle('show',isDaily);
+  if(mode==='tamil'){
+    calViewDate=new Date(currentDate);
+    calDayDate=new Date(currentDate);
+    // Activate month view by default
+    document.querySelectorAll('.cal-view').forEach(v=>v.classList.remove('active'));
+    document.querySelectorAll('.cal-vtab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('calv-month').classList.add('active');
+    document.getElementById('cvt-month').classList.add('active');
+    renderCalMonth();
+    document.getElementById('panchDateLbl').textContent=formatDate(currentDate);
+    // Auto-fetch if not already cached — only on HTTPS (GitHub Pages)
+    // On local file:// the Claude API returns 401 authentication error
+    const y2=calViewDate.getFullYear(),m2=calViewDate.getMonth();
+    const mk2=`${y2}-${String(m2+1).padStart(2,'0')}`;
+    if(!monthApiCache[mk2]){
+      if(location.protocol==='https:'){
+        setTimeout(()=>fetchMonthPanchang(),400);
+      } else {
+        // Running locally — show helpful message
+        const statusEl=document.getElementById('fetchMonthStatus');
+        if(statusEl) statusEl.innerHTML='<span style="color:var(--amber)">⚠ Upload to GitHub Pages for auto-fetch. Or tap the button below.</span>';
+      }
+    }
+  }
+  // bottom nav
+  const nav=document.getElementById('bottomNav');
+  nav.className='bottom-nav'+(mode==='daily'?' nav-daily':'');
+  if(mode==='common'){
+    nav.innerHTML=`
+      <button class="bnav-btn active" id="bn-phones" onclick="switchCP('phones',null,'bn-phones')"><div class="bnav-pip"></div><div class="bnav-icon">📞</div><div class="bnav-lbl">Phones</div></button>
+      <button class="bnav-btn" id="bn-buylist" onclick="switchCP('buylist',null,'bn-buylist')"><div class="bnav-pip"></div><div class="bnav-icon">🛒</div><div class="bnav-lbl">Buy</div></button>
+      <button class="bnav-btn" id="bn-links" onclick="switchCP('links',null,'bn-links')"><div class="bnav-pip"></div><div class="bnav-icon">🔗</div><div class="bnav-lbl">Links</div></button>`;
+    // Activate first common panel
+    switchCP('phones',null,'bn-phones');
+  } else if(mode==='daily'){
+    nav.innerHTML=`
+      <button class="bnav-btn active" id="bn-tasks" onclick="switchDP('tasks',null,'bn-tasks')"><div class="bnav-pip"></div><div class="bnav-icon">✓</div><div class="bnav-lbl">Tasks</div></button>
+      <button class="bnav-btn" id="bn-reminders" onclick="switchDP('reminders',null,'bn-reminders')"><div class="bnav-pip"></div><div class="bnav-icon">🔔</div><div class="bnav-lbl">Remind</div></button>
+      <button class="bnav-btn" id="bn-expenses" onclick="switchDP('expenses',null,'bn-expenses')"><div class="bnav-pip"></div><div class="bnav-icon">₹</div><div class="bnav-lbl">Expenses</div></button>`;
+    // Activate first daily panel
+    switchDP('tasks',null,'bn-tasks');
+  } else {
+    nav.innerHTML=`
+      <button class="bnav-btn active"><div class="bnav-pip"></div><div class="bnav-icon">🪔</div><div class="bnav-lbl">Panchangam</div></button>`;
+  }
+  document.querySelector('.main-scroll').scrollTop=0;
+}
+function switchCP(name,dBtn,mId){
+  document.querySelectorAll('.cpanel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById('cp-'+name);
+  if(panel)panel.classList.add('active');
+  // desktop tabs
+  document.querySelectorAll('#screen-common .dtab').forEach(t=>t.classList.remove('active'));
+  if(dBtn)dBtn.classList.add('active');
+  else document.querySelectorAll('#screen-common .dtab').forEach(t=>{
+    if((''+t.getAttribute('onclick')).includes("'"+name+"'"))t.classList.add('active');
+  });
+  // bottom nav - find by id or by matching onclick text
+  document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
+  if(mId){
+    const btn=document.getElementById(mId);
+    if(btn)btn.classList.add('active');
+    else document.querySelectorAll('.bnav-btn').forEach(b=>{
+      if((''+b.getAttribute('onclick')).includes("'"+name+"'"))b.classList.add('active');
+    });
+  }
+}
+function switchDP(name,dBtn,mId){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById('dp-'+name);
+  if(panel)panel.classList.add('active');
+  // desktop tabs
+  document.querySelectorAll('#screen-daily .dtab').forEach(t=>t.classList.remove('active'));
+  if(dBtn)dBtn.classList.add('active');
+  else document.querySelectorAll('#screen-daily .dtab').forEach(t=>{
+    if((''+t.getAttribute('onclick')).includes("'"+name+"'"))t.classList.add('active');
+  });
+  // bottom nav
+  document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
+  if(mId){
+    const btn=document.getElementById(mId);
+    if(btn)btn.classList.add('active');
+    else document.querySelectorAll('.bnav-btn').forEach(b=>{
+      if((''+b.getAttribute('onclick')).includes("'"+name+"'"))b.classList.add('active');
+    });
+  }
+}
+
+/* ══════════════════════════════════
+   TOAST
+══════════════════════════════════ */
+function toast(msg,dur=2400){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),dur);}
+
+/* ══════════════════════════════════
+   STATS
+══════════════════════════════════ */
+function renderStats(){
+  const d=getDayData();
+  const done=d.todos.filter(t=>t.completed).length;
+  const pending=d.reminders.filter(r=>!r.done).length;
+  const total=d.expenses.reduce((s,e)=>s+e.amount,0);
+  document.getElementById('stTask').textContent=d.todos.length;
+  document.getElementById('stTaskD').textContent=done+' done';
+  document.getElementById('stRem').textContent=d.reminders.length;
+  document.getElementById('stRemD').textContent=pending+' pending';
+  document.getElementById('stExp').textContent='₹'+total.toFixed(0);
+  document.getElementById('stExpD').textContent=d.expenses.length+' entries';
+}
+
+/* ══════════════════════════════════
+   EDIT MODAL
+══════════════════════════════════ */
+let editCtx=null; // {type, idx, mode}
+function openEdit(type,idx,mode){
+  editCtx={type,idx,mode};
+  const modal=document.getElementById('editModal');
+  const saveBtn=document.getElementById('modalSave');
+  saveBtn.className='modal-save'+(mode==='daily'?' daily-save':'');
+  let icon='✏️',title='Edit',text='',extra='';
+  if(type==='todo'){
+    const t=getDayData().todos[idx];
+    icon='✅';title='Edit Task';text=t.text;
+    extra=`<div class="modal-row"><div class="modal-lbl">Priority</div>
+      <select class="inp" id="mPri">
+        <option value="med" ${t.priority==='med'?'selected':''}>⚡ Medium</option>
+        <option value="hi" ${t.priority==='hi'?'selected':''}>🔴 High</option>
+        <option value="lo" ${t.priority==='lo'?'selected':''}>🟢 Low</option>
+      </select></div>`;
+  } else if(type==='reminder'){
+    const r=getDayData().reminders[idx];
+    icon='🔔';title='Edit Reminder';text=r.text;
+    const dt=r.time?r.time.replace(' ','T').slice(0,16):'';
+    extra=`<div class="modal-row"><div class="modal-lbl">Date & Time</div><input class="inp" type="datetime-local" id="mTime" value="${dt}"></div>`;
+  } else if(type==='expense'){
+    const e=getDayData().expenses[idx];
+    icon='💸';title='Edit Expense';text=e.desc;
+    const catOpts=['food','travel','work','health','other'].map(c=>`<option value="${c}" ${e.category===c?'selected':''}>${{food:'🍔 Food',travel:'🚗 Travel',work:'💼 Work',health:'🏥 Health',other:'📦 Other'}[c]}</option>`).join('');
+    extra=`<div class="modal-row"><div class="modal-lbl">Amount (₹)</div><input class="inp" type="number" id="mAmt" value="${e.amount}" step="0.01" inputmode="decimal"></div>
+      <div class="modal-row"><div class="modal-lbl">Category</div><select class="inp" id="mCat">${catOpts}</select></div>`;
+  } else if(type==='phone'){
+    const p=phones[idx];
+    icon='📞';title='Edit Contact';text=p.name;
+    extra=`<div class="modal-row"><div class="modal-lbl">Phone Number</div><input class="inp" type="tel" id="mPhNum" value="${esc(p.number)}" inputmode="tel"></div>
+      <div class="modal-row"><div class="modal-lbl">Tag (optional)</div><input class="inp" type="text" id="mPhTag" value="${esc(p.tag||'')}"></div>`;
+  } else if(type==='buy'){
+    const b=buyItems[idx];
+    icon='🛒';title='Edit Buy Item';text=b.text;
+    const catOpts=['grocery','medicine','electronics','clothing','home','other'].map(c=>`<option value="${c}" ${b.cat===c?'selected':''}>${{grocery:'🍎 Groceries',medicine:'💊 Medicines',electronics:'📱 Electronics',clothing:'👔 Clothing',home:'🏠 Home',other:'📦 Other'}[c]}</option>`).join('');
+    extra=`<div class="modal-row"><div class="modal-lbl">Category</div><select class="inp" id="mBCat">${catOpts}</select></div>
+      <div class="modal-row"><div class="modal-lbl">Quantity</div><input class="inp" type="number" id="mBQty" value="${b.qty||1}" min="1" inputmode="numeric"></div>`;
+  } else if(type==='link'){
+    const l=linkItems[idx];
+    icon='🔗';title='Edit Link';text=l.title;
+    extra=`<div class="modal-row"><div class="modal-lbl">URL</div><input class="inp" type="url" id="mUrl" value="${esc(l.url)}" inputmode="url"></div>`;
+  }
+  document.getElementById('modalIcon').textContent=icon;
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalText').value=text;
+  document.getElementById('modalExtraFields').innerHTML=extra;
+  modal.classList.add('open');
+  setTimeout(()=>document.getElementById('modalText').focus(),100);
+}
+function closeModal(e){
+  if(e&&e.target!==document.getElementById('editModal'))return;
+  document.getElementById('editModal').classList.remove('open');
+  editCtx=null;
+}
+function saveEdit(){
+  if(!editCtx)return;
+  const {type,idx}=editCtx;
+  const text=document.getElementById('modalText').value.trim();
+  if(!text){toast('Text cannot be empty');return;}
+  if(type==='todo'){
+    const t=getDayData().todos[idx];
+    t.text=text;t.priority=document.getElementById('mPri').value;
+    save();renderTodos();renderStats();
+  } else if(type==='reminder'){
+    const r=getDayData().reminders[idx];
+    r.text=text;r.time=document.getElementById('mTime').value;
+    save();renderReminders();renderStats();
+  } else if(type==='expense'){
+    const e=getDayData().expenses[idx];
+    e.desc=text;e.amount=parseFloat(document.getElementById('mAmt').value)||e.amount;
+    e.category=document.getElementById('mCat').value;
+    save();renderExpenses();renderStats();
+  } else if(type==='phone'){
+    phones[idx].name=text;
+    phones[idx].number=document.getElementById('mPhNum').value.trim();
+    phones[idx].tag=document.getElementById('mPhTag').value.trim();
+    saveP();renderPhones();
+  } else if(type==='buy'){
+    buyItems[idx].text=text;
+    buyItems[idx].cat=document.getElementById('mBCat').value;
+    buyItems[idx].qty=parseInt(document.getElementById('mBQty').value)||1;
+    saveB();renderBuyList();
+  } else if(type==='link'){
+    linkItems[idx].title=text;
+    linkItems[idx].url=document.getElementById('mUrl').value.trim();
+    saveL();renderLinks();
+  }
+  document.getElementById('editModal').classList.remove('open');
+  editCtx=null;
+  toast('Saved ✓');
+}
+
+/* ══════════════════════════════════
+   TODOS
+══════════════════════════════════ */
+function addTodo(){
+  const inp=document.getElementById('todoInput');
+  const pri=document.getElementById('todoPri').value;
+  const text=inp.value.trim();if(!text)return;
+  getDayData().todos.unshift({text,completed:false,priority:pri,id:Date.now()});
+  inp.value='';save();renderTodos();renderStats();toast('Task added ✓');
+}
+function toggleTodo(i){const t=getDayData().todos[i];t.completed=!t.completed;save();renderTodos();renderStats();}
+function deleteTodo(i){getDayData().todos.splice(i,1);save();renderTodos();renderStats();toast('Removed');}
+function renderTodos(){
+  const list=document.getElementById('todoList'),todos=getDayData().todos;
+  const done=todos.filter(t=>t.completed).length;
+  document.getElementById('todoCount').textContent=todos.length+' task'+(todos.length!==1?'s':'');
+  const pw=document.getElementById('todoProg');
+  if(todos.length){pw.style.display='block';const pct=Math.round(done/todos.length*100);document.getElementById('todoPct').textContent=pct+'%';document.getElementById('todoFill').style.width=pct+'%';}
+  else pw.style.display='none';
+  if(!todos.length){list.innerHTML='<div class="empty-state"><div class="empty-icon">✓</div>No tasks yet</div>';return;}
+  const pm={hi:'pri-hi',med:'pri-md',lo:'pri-lo'},pl={hi:'High',med:'Medium',lo:'Low'};
+  list.innerHTML=todos.map((t,i)=>`<div class="item-row${t.completed?' item-done':''}">
+    <div class="chk${t.completed?' on':''}" onclick="toggleTodo(${i})"></div>
+    <span class="item-text">${esc(t.text)}</span>
+    ${t.carriedFrom?'<span class="badge-carried">→</span>':''}
+    <span class="pri ${pm[t.priority]||'pri-md'}">${pl[t.priority]||'Med'}</span>
+    <button class="act-btn edit" onclick="openEdit('todo',${i},'daily')" title="Edit">✎</button>
+    <button class="act-btn del" onclick="deleteTodo(${i})">×</button>
+  </div>`).join('');
+}
+
+/* ══════════════════════════════════
+   REMINDERS
+══════════════════════════════════ */
+async function addReminder(text,time){
+  let t=text,ti=time;
+  if(!t){
+    const inp=document.getElementById('remInput');
+    t=inp.value.trim();
+    if(!t){toast('Enter reminder text');return;}
+    // Build time from AM/PM selectors
+    const dateVal=document.getElementById('remDate').value;
+    let h=parseInt(document.getElementById('remHour').value||'6');
+    const min=document.getElementById('remMin').value||'00';
+    const ampm=document.getElementById('remAmPm').value||'AM';
+    if(ampm==='PM'&&h!==12)h+=12;
+    if(ampm==='AM'&&h===12)h=0;
+    const timeStr=String(h).padStart(2,'0')+':'+min;
+    // Use selected date or today
+    const today=new Date();
+    const ds=dateVal||`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+    ti=`${ds}T${timeStr}`;
+    inp.value='';
+    // Store in the correct day
+    const d=new Date(ds+'T12:00:00');
+    const k=getKey(d);
+    if(!data[k])data[k]={todos:[],reminders:[],expenses:[]};
+    data[k].reminders.unshift({text:t,time:ti,done:false,id:Date.now()});
+    save();
+    // Refresh if viewing that day
+    if(k===getKey(currentDate))renderReminders();
+    renderStats();
+    const granted=await requestNotifPerm();
+    toast(granted?'🔔 Reminder set!':'Reminder saved');
+    return;
+  }
+  const granted=await requestNotifPerm();
+  getDayData().reminders.unshift({text:t,time:ti,done:false,id:Date.now()});
+  save();renderReminders();renderStats();
+  toast(granted?'🔔 Reminder set!':'Reminder saved');
+}
+function toggleReminder(i){const r=getDayData().reminders[i];r.done=!r.done;save();renderReminders();renderStats();}
+function deleteReminder(i){getDayData().reminders.splice(i,1);save();renderReminders();renderStats();toast('Removed');}
+function renderReminders(){
+  const list=document.getElementById('remList'),rems=getDayData().reminders;
+  const pending=rems.filter(r=>!r.done).length;
+  document.getElementById('remCount').textContent=rems.length+(pending<rems.length?' · '+pending+' pending':'');
+  if(!rems.length){list.innerHTML='<div class="empty-state"><div class="empty-icon">🔔</div>No reminders set</div>';return;}
+  const now=new Date();
+  list.innerHTML=rems.map((r,i)=>{
+    const dt=new Date(r.time),over=dt<now&&!r.done;
+    const fmt=dt.toLocaleString('en-IN',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+    return`<div class="item-row${r.done?' item-done':''}">
+      <div class="chk${r.done?' on':''}" onclick="toggleReminder(${i})"></div>
+      <div class="item-text">
+        <div>${esc(r.text)}</div>
+        <div class="rem-meta">
+          <span class="rem-time${over?' overdue':''}">${over?'⚠ Overdue · ':''}${fmt}</span>
+          ${r.carriedFrom?'<span class="badge-carried">→ carried</span>':''}
+        </div>
+      </div>
+      <button class="act-btn edit" onclick="openEdit('reminder',${i},'daily')" title="Edit">✎</button>
+      <button class="act-btn del" onclick="deleteReminder(${i})">×</button>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════
+   EXPENSES
+══════════════════════════════════ */
+function showExpTotal(){
+  // Compute all-time totals across all days
+  let grandTotal=0;
+  const byCat={food:0,travel:0,work:0,health:0,other:0};
+  const byDay=[];
+  Object.keys(data).sort().reverse().forEach(dk=>{
+    const exps=(data[dk]||{}).expenses||[];
+    // only count non-carried (original) entries to avoid double-counting
+    const orig=exps.filter(e=>!e.carriedFrom);
+    const dayTotal=orig.reduce((s,e)=>s+e.amount,0);
+    if(dayTotal>0){
+      byDay.push({date:dk,total:dayTotal,count:orig.length});
+      orig.forEach(e=>{grandTotal+=e.amount;byCat[e.category]=(byCat[e.category]||0)+e.amount;});
+    }
+  });
+  const catLabel={food:'🍔 Food',travel:'🚗 Travel',work:'💼 Work',health:'🏥 Health',other:'📦 Other'};
+  let html=`<div style="text-align:center;margin-bottom:18px">
+    <div style="font-size:11px;color:var(--text-faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px">Grand Total</div>
+    <div style="font-size:36px;font-weight:700;color:var(--emerald);font-family:var(--mono)">₹${grandTotal.toFixed(2)}</div>
+  </div>
+  <div style="font-size:10px;color:var(--text-faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px">By Category</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">`;
+  Object.entries(byCat).filter(([,v])=>v>0).forEach(([cat,val])=>{
+    html+=`<div style="background:var(--surface3);border-radius:8px;padding:10px 12px">
+      <div style="font-size:12px;color:var(--text-dim)">${catLabel[cat]||cat}</div>
+      <div style="font-size:16px;font-weight:600;color:var(--emerald);font-family:var(--mono);margin-top:2px">₹${val.toFixed(0)}</div>
+    </div>`;
+  });
+  html+=`</div>
+  <div style="font-size:10px;color:var(--text-faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px">Recent Days</div>`;
+  byDay.slice(0,10).forEach(d=>{
+    html+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--surface3);border-radius:7px;margin-bottom:6px">
+      <span style="font-size:12px;color:var(--text-dim)">${d.date}</span>
+      <span style="font-size:13px;font-weight:600;color:var(--emerald);font-family:var(--mono)">₹${d.total.toFixed(0)}</span>
+    </div>`;
+  });
+  document.getElementById('expTotalContent').innerHTML=html;
+  document.getElementById('expTotalModal').classList.add('open');
+}
+function closeExpTotal(){document.getElementById('expTotalModal').classList.remove('open');}
+
+function addExpense(){
+  const desc=document.getElementById('expDesc').value.trim();
+  const amt=parseFloat(document.getElementById('expAmt').value);
+  const cat=document.getElementById('expCat').value;
+  if(!desc||isNaN(amt)||amt<=0){toast('Fill description & amount');return;}
+  getDayData().expenses.unshift({desc,amount:amt,category:cat,id:Date.now()});
+  document.getElementById('expDesc').value='';document.getElementById('expAmt').value='';
+  save();renderExpenses();renderStats();toast('Expense added ✓');
+}
+function deleteExpense(i){getDayData().expenses.splice(i,1);save();renderExpenses();renderStats();toast('Removed');}
+function renderExpenses(){
+  const list=document.getElementById('expList'),exps=getDayData().expenses;
+  const total=exps.reduce((s,e)=>s+e.amount,0);
+  document.getElementById('expTotal').textContent='₹'+total.toFixed(2);
+  document.getElementById('expCount').textContent=exps.length;
+  if(!exps.length){list.innerHTML='<div class="empty-state"><div class="empty-icon">₹</div>No expenses recorded</div>';return;}
+  const cc={food:'c-food',travel:'c-travel',work:'c-work',health:'c-health',other:'c-other'};
+  const cl={food:'Food',travel:'Travel',work:'Work',health:'Health',other:'Other'};
+  list.innerHTML=exps.map((e,i)=>`<div class="exp-item-row">
+    <span class="cat-chip ${cc[e.category]||'c-other'}">${cl[e.category]||'Other'}</span>
+    <span class="exp-desc">${esc(e.desc)}</span>
+    ${e.carriedFrom?'<span class="badge-carried" style="font-size:9px">→</span>':''}
+    <span class="exp-amt">₹${e.amount.toFixed(2)}</span>
+    <button class="act-btn edit" onclick="openEdit('expense',${i},'daily')" title="Edit">✎</button>
+    <button class="act-btn del" onclick="deleteExpense(${i})">×</button>
+  </div>`).join('');
+}
+
+/* ══════════════════════════════════
+   PHONES
+══════════════════════════════════ */
+function addPhone(){
+  const name=document.getElementById('phoneName').value.trim();
+  const number=document.getElementById('phoneNumber').value.trim();
+  const tag=document.getElementById('phoneTag').value.trim();
+  if(!name||!number){toast('Name and number required');return;}
+  phones.unshift({id:Date.now(),name,number,tag});
+  document.getElementById('phoneName').value='';document.getElementById('phoneNumber').value='';document.getElementById('phoneTag').value='';
+  saveP();renderPhones();toast('Contact saved ✓');
+}
+function deletePhone(id){phones=phones.filter(p=>p.id!==id);saveP();renderPhones();toast('Removed');}
+function renderPhones(){
+  const list=document.getElementById('phoneList');
+  const q=(document.getElementById('phoneSearch')||{}).value||'';
+  const filtered=q?phones.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||p.number.includes(q)||(p.tag||'').toLowerCase().includes(q.toLowerCase())):phones;
+  document.getElementById('phoneCount').textContent=phones.length+' contact'+(phones.length!==1?'s':'');
+  if(!filtered.length){list.innerHTML=`<div class="empty-state"><div class="empty-icon">📞</div>${q?'No matches':'No contacts yet'}</div>`;return;}
+  const groups={};filtered.forEach(p=>{const l=p.name[0].toUpperCase();if(!groups[l])groups[l]=[];groups[l].push(p);});
+  const phIdx=(p)=>phones.indexOf(p);
+  list.innerHTML=Object.keys(groups).sort().map(letter=>`
+    <div style="font-size:10px;font-weight:600;color:var(--ca);font-family:var(--mono);text-transform:uppercase;letter-spacing:.8px;padding:8px 4px 4px">${letter}</div>
+    ${groups[letter].map(p=>`<div class="phone-row">
+      <div class="ph-avatar">${p.name[0].toUpperCase()}</div>
+      <div class="ph-info">
+        <div class="ph-name">${esc(p.name)}${p.tag?`<span class="ph-tag">${esc(p.tag)}</span>`:''}</div>
+        <div class="ph-num">${esc(p.number)}</div>
+      </div>
+      <a class="ph-call" href="tel:${esc(p.number)}">📞</a>
+      <button class="act-btn edit" onclick="openEdit('phone',${phIdx(p)},'')" title="Edit">✎</button>
+      <button class="act-btn del" onclick="deletePhone(${p.id})">×</button>
+    </div>`).join('')}`).join('');
+}
+
+/* ══════════════════════════════════
+   BUY LIST
+══════════════════════════════════ */
+const BUY_ICON={grocery:'🍎',medicine:'💊',electronics:'📱',clothing:'👔',home:'🏠',other:'📦'};
+let buyFilter='all';
+function filterBuy(cat,btn){buyFilter=cat;document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('on'));btn.classList.add('on');renderBuyList();}
+function addBuyItem(){
+  const inp=document.getElementById('noteInput');
+  const cat=document.getElementById('buyCategory').value;
+  const qty=parseInt(document.getElementById('buyQty').value)||1;
+  const text=inp.value.trim();if(!text)return;
+  buyItems.unshift({text,cat,qty,bought:false,id:Date.now()});
+  inp.value='';document.getElementById('buyQty').value='';
+  saveB();renderBuyList();toast('Added ✓');
+}
+function toggleBuy(id){const b=buyItems.find(x=>x.id===id);if(b)b.bought=!b.bought;saveB();renderBuyList();}
+function deleteBuy(id){buyItems=buyItems.filter(x=>x.id!==id);saveB();renderBuyList();toast('Removed');}
+function renderBuyList(){
+  const c=document.getElementById('buyList');
+  const filtered=buyFilter==='all'?buyItems:buyItems.filter(n=>n.cat===buyFilter);
+  const total=buyItems.length,bought=buyItems.filter(n=>n.bought).length;
+  document.getElementById('noteCount').textContent=total+' item'+(total!==1?'s':'')+(bought?' · '+bought+' bought':'');
+  if(!filtered.length){c.innerHTML=`<div class="empty-state"><div class="empty-icon">🛒</div>${buyFilter==='all'?'Nothing to buy':'No items here'}</div>`;return;}
+  const sorted=[...filtered.filter(n=>!n.bought),...filtered.filter(n=>n.bought)];
+  const bIdx=(b)=>buyItems.indexOf(b);
+  c.innerHTML=sorted.map(b=>`<div class="buy-row${b.bought?' bought':''}">
+    <div class="chk${b.bought?' on':''}" onclick="toggleBuy(${b.id})"></div>
+    <span class="buy-icon">${BUY_ICON[b.cat]||'📦'}</span>
+    <span class="item-text">${esc(b.text)}</span>
+    ${b.qty>1?`<span class="buy-qty">×${b.qty}</span>`:''}
+    <button class="act-btn edit" onclick="openEdit('buy',${bIdx(b)},'')" title="Edit">✎</button>
+    <button class="act-btn del" onclick="deleteBuy(${b.id})">×</button>
+  </div>`).join('');
+}
+
+/* ══════════════════════════════════
+   LINKS
+══════════════════════════════════ */
+function addLink(){
+  const title=document.getElementById('linkTitle').value.trim();
+  const url=document.getElementById('linkUrl').value.trim();
+  if(!title||!url){toast('Fill in title & URL');return;}
+  linkItems.unshift({title,url,id:Date.now()});
+  document.getElementById('linkTitle').value='';document.getElementById('linkUrl').value='';
+  saveL();renderLinks();toast('Link saved ✓');
+}
+function deleteLink(id){linkItems=linkItems.filter(l=>l.id!==id);saveL();renderLinks();toast('Removed');}
+function renderLinks(){
+  const list=document.getElementById('linkList');
+  const q=(document.getElementById('linkSearch')||{}).value||'';
+  const filtered=q?linkItems.filter(l=>l.title.toLowerCase().includes(q.toLowerCase())||l.url.toLowerCase().includes(q.toLowerCase())):linkItems;
+  document.getElementById('linkCount').textContent=linkItems.length+' saved';
+  if(!filtered.length){list.innerHTML=`<div class="empty-state"><div class="empty-icon">🔗</div>${q?'No matches':'No links saved'}</div>`;return;}
+  const lIdx=(l)=>linkItems.indexOf(l);
+  list.innerHTML=filtered.map(l=>{
+    let domain='';try{domain=new URL(l.url).hostname;}catch(e){}
+    return`<div class="link-row">
+      <img class="link-fav" src="https://www.google.com/s2/favicons?domain=${domain}&sz=32" onerror="this.style.display='none'">
+      <div class="link-info"><a href="${esc(l.url)}" target="_blank" class="link-title">${esc(l.title)}</a><div class="link-domain">${domain}</div></div>
+      <button class="act-btn edit" onclick="openEdit('link',${lIdx(l)},'')" title="Edit">✎</button>
+      <button class="act-btn del" onclick="deleteLink(${l.id})">×</button>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════
+   DAY SUMMARY
+══════════════════════════════════ */
+function genSummary(type){
+  const d=getDayData(),date=formatDate(currentDate);let out='';
+  if(type==='tasks'||type==='all'){
+    const tot=d.todos.length,done=d.todos.filter(t=>t.completed).length;
+    out+='✅ TASKS — '+date+'\n';
+    if(!tot){out+='  No tasks.\n';}
+    else{
+      out+='  '+done+'/'+tot+' done ('+Math.round(done/tot*100)+'%)\n';
+      const hi=d.todos.filter(t=>t.priority==='hi'&&!t.completed);
+      if(hi.length)out+='  🔴 High priority: '+hi.map(t=>t.text).join(', ')+'\n';
+      d.todos.filter(t=>!t.completed).forEach(t=>{out+='  ○ '+t.text+(t.carriedFrom?' [carried]':'')+'\n';});
+      d.todos.filter(t=>t.completed).forEach(t=>{out+='  ✓ '+t.text+'\n';});
+    }
+    out+='\n';
+  }
+  if(type==='reminders'||type==='all'){
+    out+='🔔 REMINDERS\n';
+    if(!d.reminders.length){out+='  None.\n';}
+    else{const now=new Date();d.reminders.forEach(r=>{const dt=new Date(r.time),over=dt<now&&!r.done;const fmt=dt.toLocaleString('en-IN',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});out+='  '+(r.done?'✓ Done':'⏰ '+fmt)+(over?' ⚠ OVERDUE':'')+' — '+r.text+(r.carriedFrom?' [carried]':'')+'\n';});}
+    out+='\n';
+  }
+  if(type==='expenses'||type==='all'){
+    const tot=d.expenses.reduce((s,e)=>s+e.amount,0);
+    out+='₹ EXPENSES — '+date+'\n';
+    if(!d.expenses.length){out+='  None.\n';}
+    else{
+      const bycat={};d.expenses.forEach(e=>{if(!bycat[e.category])bycat[e.category]=0;bycat[e.category]+=e.amount;});
+      d.expenses.forEach(e=>{out+='  ₹'+e.amount.toFixed(2)+' — '+e.desc+' ['+e.category+']\n';});
+      out+='  ───\n  Total: ₹'+tot.toFixed(2)+'\n';
+      out+='  '+Object.entries(bycat).map(([k,v])=>k+' ₹'+v.toFixed(0)).join(' | ')+'\n';
+    }
+    out+='\n';
+  }
+  const el=document.getElementById('summaryResult');
+  document.getElementById('summaryText').textContent=out.trim()||'Nothing tracked yet.';
+  el.style.display='block';
+}
+
+/* ══════════════════════════════════
+   TAMIL PANCHANGAM
+   Uses Claude API for accurate panchang calculation
+══════════════════════════════════ */
+// panchCalcCache used instead
+
+/* ══════════════════════════════════
+   THEME
+══════════════════════════════════ */
+let isDark=true;
+function toggleTheme(){
+  isDark=!isDark;
+  document.body.classList.toggle('theme-light',!isDark);
+  document.getElementById('themeToggle').textContent=isDark?'🌙':'☀️';
+  localStorage.setItem('dt_theme',isDark?'dark':'light');
+}
+(function(){
+  const t=localStorage.getItem('dt_theme');
+  if(t==='light'){isDark=false;document.body.classList.add('theme-light');document.getElementById('themeToggle').textContent='☀️';}
+})();
+
+
+/* ═══════════════════════════════════════════════════════════
+   OFFLINE PANCHANG ENGINE — Pure JS Lunar Astronomy
+   Accurate for Chennai (lat 13.0827°N, lon 80.2707°E, IST)
+   Uses Jean Meeus "Astronomical Algorithms" formulas
+═══════════════════════════════════════════════════════════ */
+
+// ── Julian Day Number ──
+function julianDay(y,m,d,h=5.5){
+  if(m<=2){y--;m+=12;}
+  const A=Math.floor(y/100);
+  const B=2-A+Math.floor(A/4);
+  return Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+d+h/24+B-1524.5;
+}
+
+// ── Sun longitude ──
+function sunLon(jd){
+  const T=(jd-2451545.0)/36525;
+  const L0=280.46646+36000.76983*T;
+  const M=(357.52911+35999.05029*T-0.0001537*T*T)*Math.PI/180;
+  const C=(1.914602-0.004817*T-0.000014*T*T)*Math.sin(M)
+         +(0.019993-0.000101*T)*Math.sin(2*M)
+         +0.000289*Math.sin(3*M);
+  return((L0+C)%360+360)%360;
+}
+
+// ── Moon longitude (simplified but accurate ~1°) ──
+function moonLon(jd){
+  const T=(jd-2451545.0)/36525;
+  const d_=(297.85036+445267.111480*T-0.001914*T*T)*Math.PI/180;
+  const M=(357.52772+35999.050340*T-0.0001603*T*T)*Math.PI/180;
+  const Mp=(134.96298+477198.867398*T+0.0086972*T*T)*Math.PI/180;
+  const F=(93.27191+483202.017538*T-0.0036825*T*T)*Math.PI/180;
+  const Om=(125.04452-1934.136261*T+0.0020708*T*T)*Math.PI/180;
+
+  let Sigma=0;
+  Sigma+=6.288774*Math.sin(Mp);
+  Sigma+=1.274027*Math.sin(2*d_-Mp);
+  Sigma+=0.658314*Math.sin(2*d_);
+  Sigma+=0.213618*Math.sin(2*Mp);
+  Sigma-=0.185116*Math.sin(M);
+  Sigma-=0.114332*Math.sin(2*F);
+  Sigma+=0.058793*Math.sin(2*d_-2*Mp);
+  Sigma+=0.057066*Math.sin(2*d_-M-Mp);
+  Sigma+=0.053322*Math.sin(2*d_+Mp);
+  Sigma+=0.045758*Math.sin(2*d_-M);
+  Sigma-=0.040923*Math.sin(M-Mp);
+  Sigma-=0.034720*Math.sin(d_);
+  Sigma-=0.030383*Math.sin(M+Mp);
+  Sigma+=0.015327*Math.sin(2*d_-2*F);
+  Sigma-=0.012528*Math.sin(Mp+2*F);
+  Sigma+=0.010980*Math.sin(Mp-2*F);
+  Sigma+=0.010675*Math.sin(4*d_-Mp);
+  Sigma+=0.010034*Math.sin(3*Mp);
+
+  const L0=218.3164477+481267.88123421*T-0.0015786*T*T;
+  return((L0+Sigma)%360+360)%360;
+}
+
+// ── Nakshatra from moon longitude ──
+const NAKSHATRAS=[
+  'Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra',
+  'Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni',
+  'Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha',
+  'Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishta','Shatabhisha',
+  'Purva Bhadrapada','Uttara Bhadrapada','Revati'
+];
+const NAKSHATRAS_TM=[
+  'அஸ்வினி','பரணி','கார்த்திகை','ரோகிணி','மிருகசீர்ஷம்','திருவாதிரை',
+  'புனர்பூசம்','பூசம்','ஆயில்யம்','மகம்','பூரம்','உத்திரம்',
+  'அஸ்தம்','சித்திரை','சுவாதி','விசாகம்','அனுஷம்','கேட்டை',
+  'மூலம்','பூராடம்','உத்திராடம்','திருவோணம்','அவிட்டம்','சதயம்',
+  'பூரட்டாதி','உத்திரட்டாதி','ரேவதி'
+];
+
+function getNakshatra(moonL){
+  const idx=Math.floor(moonL/13.3333)%27;
+  return{en:NAKSHATRAS[idx],tm:NAKSHATRAS_TM[idx],num:idx+1};
+}
+
+// ── Tithi from sun-moon elongation ──
+const TITHIS_EN=[
+  'Prathama','Dvitiya','Tritiya','Chaturthi','Panchami',
+  'Shashti','Saptami','Ashtami','Navami','Dashami',
+  'Ekadasi','Dvadasi','Trayodasi','Chaturdasi','Pournami/Amavasai'
+];
+const TITHIS_TM=[
+  'பிரதமை','துவிதியை','திரிதியை','சதுர்த்தி','பஞ்சமி',
+  'ஷஷ்டி','சப்தமி','அஷ்டமி','நவமி','தசமி',
+  'ஏகாதசி','துவாதசி','திரயோதசி','சதுர்த்தசி','பௌர்ணமி/அமாவாசை'
+];
+
+function getTithi(sunL,moonL){
+  let elong=((moonL-sunL)%360+360)%360;
+  const tithiNum=Math.floor(elong/12);
+  const paksha=tithiNum<15?'Shukla Paksha':'Krishna Paksha';
+  const pakshaTm=tithiNum<15?'சுக்ல பக்ஷம்':'கிருஷ்ண பக்ஷம்';
+  const idx=tithiNum%15;
+  // Special tithis
+  let special='';
+  if(idx===4)special='Panchami';
+  if(idx===10)special='Ekadasi';
+  if(idx===14){special=paksha==='Shukla Paksha'?'Pournami':'Amavasai';}
+  // Krittika nakshatra check
+  return{
+    num:idx+1,en:TITHIS_EN[idx],tm:TITHIS_TM[idx],
+    paksha,pakshaTm,special,elong
+  };
+}
+
+// ── Yoga ──
+const YOGAS=['Vishkambha','Preeti','Ayushman','Saubhagya','Shobhana',
+  'Atiganda','Sukarman','Dhriti','Shula','Ganda','Vriddhi','Dhruva',
+  'Vyaghata','Harshana','Vajra','Siddhi','Vyatipata','Variyan',
+  'Parigha','Shiva','Siddha','Sadhya','Shubha','Shukla','Brahma','Indra','Vaidhriti'];
+function getYoga(sunL,moonL){
+  const sum=(sunL+moonL)%360;
+  const idx=Math.floor(sum/13.3333)%27;
+  return YOGAS[idx];
+}
+
+// ── Karana ──
+const KARANAS=['Bava','Balava','Kaulava','Taitila','Garaja','Vanija','Vishti(Bhadra)','Shakuni','Chatuspada','Naga','Kimstughna'];
+function getKarana(sunL,moonL){
+  let elong=((moonL-sunL)%360+360)%360;
+  const idx=Math.floor(elong/6)%11;
+  return KARANAS[idx];
+}
+
+// ── Vaaram (weekday) ──
+const VAARAMS_TM=['ஞாயிறு','திங்கள்','செவ்வாய்','புதன்','வியாழன்','வெள்ளி','சனி'];
+const VAARAMS_EN=['Nyayiru (Sun)','Thingal (Mon)','Sevvai (Tue)','Budhan (Wed)','Vyazhan (Thu)','Velli (Fri)','Sani (Sat)'];
+const VAARAMS_SHORT=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+// ── Tamil Month from solar longitude ──
+const TAMIL_SOLAR_MONTHS=['மேஷம் (Mesha)','ரிஷபம் (Rishabha)','மிதுனம் (Mithuna)','கடகம் (Kataka)','சிம்மம் (Simha)','கன்னி (Kanya)','துலாம் (Tula)','விருச்சிகம் (Vrishchika)','தனுசு (Dhanus)','மகரம் (Makara)','கும்பம் (Kumbha)','மீனம் (Meena)'];
+const TAMIL_RASHI_MONTHS=['சித்திரை','வைகாசி','ஆனி','ஆடி','ஆவணி','புரட்டாசி','ஐப்பசி','கார்த்திகை','மார்கழி','தை','மாசி','பங்குனி'];
+function getTamilSolarMonth(sunL){
+  return Math.floor(sunL/30)%12;
+}
+
+// ── Sunrise/Sunset for Chennai ──
+function getSunriseSunset(jd){
+  // Chennai lat=13.0827, lon=80.2707
+  const lat=13.0827*Math.PI/180;
+  const T=(jd-2451545.0)/36525;
+  const L0=(280.46646+36000.76983*T)%360;
+  const M=(357.52911+35999.05029*T)*Math.PI/180;
+  const C=(1.914602-0.004817*T)*Math.sin(M)+(0.019993-0.000101*T)*Math.sin(2*M);
+  const sun_lon=(L0+C)*Math.PI/180;
+  const obliq=(23.439291111-0.013004167*T)*Math.PI/180;
+  const dec=Math.asin(Math.sin(obliq)*Math.sin(sun_lon));
+  const cosH=-Math.tan(lat)*Math.tan(dec);
+  const H=Math.acos(Math.max(-1,Math.min(1,cosH)));
+  const Hdeg=H*180/Math.PI;
+  // Equation of time approx
+  const RA=Math.atan2(Math.cos(obliq)*Math.sin(sun_lon),Math.cos(sun_lon))*180/Math.PI;
+  const eot=L0-0.0057183-RA+180*(Math.floor((L0-RA)/180));
+  const transit=12+(80.2707/15)*(-1)-(eot/60); // local transit IST
+  const halfday=Hdeg/15;
+  const rise=transit-halfday;
+  const set=transit+halfday;
+  function fmt(h){
+    const hh=Math.floor(h),mm=Math.round((h-hh)*60);
+    const hh2=hh<0?hh+24:hh;
+    return String(hh2).padStart(2,'0')+':'+String(mm<60?mm:59).padStart(2,'0');
+  }
+  return{rise:fmt(rise),set:fmt(set),riseH:rise,setH:set};
+}
+
+// ── Rahu Kalam (based on weekday) ──
+const RAHU_KALAM_SLOTS=[8,2,7,5,6,4,3]; // fraction of 8 day parts from sunrise
+// Sun=8th, Mon=2nd, Tue=7th, Wed=5th, Thu=6th, Fri=4th, Sat=3rd
+function getRahuKalam(weekday,riseH,setH){
+  const dayLen=(setH-riseH)/8;
+  const slot=RAHU_KALAM_SLOTS[weekday]-1;
+  const start=riseH+slot*dayLen;
+  const end=start+dayLen;
+  function fmt(h){const hh=Math.floor(h),mm=Math.round((h-hh)*60);return String(hh).padStart(2,'0')+':'+String(Math.min(mm,59)).padStart(2,'0');}
+  return{start:fmt(start),end:fmt(end)};
+}
+
+// Gulika Kalam slots (Sun=6,Mon=7,Tue=1,Wed=3,Thu=4,Fri=2,Sat=5)
+const GULIKA_SLOTS=[6,7,1,3,4,2,5];
+function getGulikaKalam(weekday,riseH,setH){
+  const dayLen=(setH-riseH)/8;
+  const slot=GULIKA_SLOTS[weekday]-1;
+  const start=riseH+slot*dayLen;
+  const end=start+dayLen;
+  function fmt(h){const hh=Math.floor(h),mm=Math.round((h-hh)*60);return String(hh).padStart(2,'0')+':'+String(Math.min(mm,59)).padStart(2,'0');}
+  return{start:fmt(start),end:fmt(end)};
+}
+
+// Yamagandam (Sun=4,Mon=1,Tue=5,Wed=3,Thu=2,Fri=6,Sat=7)
+const YAMA_SLOTS=[4,1,5,3,2,6,7];
+function getYamagandam(weekday,riseH,setH){
+  const dayLen=(setH-riseH)/8;
+  const slot=YAMA_SLOTS[weekday]-1;
+  const start=riseH+slot*dayLen;
+  const end=start+dayLen;
+  function fmt(h){const hh=Math.floor(h),mm=Math.round((h-hh)*60);return String(hh).padStart(2,'0')+':'+String(Math.min(mm,59)).padStart(2,'0');}
+  return{start:fmt(start),end:fmt(end)};
+}
+
+// Abhijit Muhurta — middle of day for ~48 min
+function getAbhijit(riseH,setH){
+  const mid=(riseH+setH)/2;
+  const start=mid-0.4;const end=mid+0.4;
+  function fmt(h){const hh=Math.floor(h),mm=Math.round((h-hh)*60);return String(hh).padStart(2,'0')+':'+String(Math.min(mm,59)).padStart(2,'0');}
+  return{start:fmt(start),end:fmt(end)};
+}
+
+// Brahma Muhurta — 1hr36min before sunrise
+function getBrahma(riseH){
+  const start=riseH-1.6;const end=riseH-0.8;
+  function fmt(h){const hh=Math.floor(h<0?h+24:h),mm=Math.round((h-Math.floor(h))*60);return String(hh).padStart(2,'0')+':'+String(Math.min(mm,59)).padStart(2,'0');}
+  return{start:fmt(start),end:fmt(end)};
+}
+
+// Nalla Neram calculation (good periods based on weekday)
+const NALLA_NERAM_TM={
+  0:['காலை 7:30-9:00','மாலை 4:30-6:00'],
+  1:['காலை 6:00-7:30','பகல் 1:30-3:00'],
+  2:['காலை 9:00-10:30','மாலை 6:00-7:30'],
+  3:['காலை 7:30-9:00','பகல் 12:00-1:30'],
+  4:['காலை 6:00-7:30','பகல் 3:00-4:30'],
+  5:['காலை 10:30-12:00','மாலை 4:30-6:00'],
+  6:['காலை 9:00-10:30','மாலை 3:00-4:30']
+};
+
+// ── Auspicious Day Detection ──
+function getAuspiciousDays(tithi,nakshatra,weekday){
+  const specials=[];
+  const t=tithi.num;
+  const paksha=tithi.paksha;
+  
+  // Pournami — full moon = tithi 15 shukla
+  if(t===15&&paksha==='Shukla Paksha'){
+    specials.push({name:'Pournami',tm:'பௌர்ணமி',type:'major',color:'#f59e0b',icon:'🌕'});
+  }
+  // Amavasai — new moon = tithi 15 krishna
+  if(t===15&&paksha==='Krishna Paksha'){
+    specials.push({name:'Amavasai',tm:'அமாவாசை',type:'major',color:'#8b5cf6',icon:'🌑'});
+  }
+  // Ekadasi — 11th tithi both paksha
+  if(t===11){
+    specials.push({name:'Ekadasi',tm:'ஏகாதசி',type:'major',color:'#6366f1',icon:'🙏'});
+  }
+  // Panchami — 5th tithi
+  if(t===5){
+    specials.push({name:'Panchami',tm:'பஞ்சமி',type:'medium',color:'#10b981',icon:'⭐'});
+  }
+  // Krittika — nakshatra 3
+  if(nakshatra.num===3){
+    specials.push({name:'Krittikai',tm:'கார்த்திகை',type:'medium',color:'#f97316',icon:'🔥'});
+  }
+  // Pradosham — 13th tithi
+  if(t===13){
+    specials.push({name:'Pradosham',tm:'பிரதோஷம்',type:'major',color:'#ec4899',icon:'✨'});
+  }
+  // Chaturdasi — 14th
+  if(t===14){
+    specials.push({name:'Chaturdasi',tm:'சதுர்த்தசி',type:'medium',color:'#14b8a6',icon:'🕉️'});
+  }
+  // Ashtami — 8th
+  if(t===8){
+    specials.push({name:'Ashtami',tm:'அஷ்டமி',type:'info',color:'#60a5fa',icon:'🌟'});
+  }
+  return specials;
+}
+
+// ── Main Panchang Calculator ──
+function calcPanchang(date){
+  const y=date.getFullYear(),mo=date.getMonth()+1,d=date.getDate();
+  const jd=julianDay(y,mo,d,5.5); // IST noon
+  const sunL=sunLon(jd);
+  const moonL=moonLon(jd);
+  const weekday=date.getDay();
+  
+  const tithi=getTithi(sunL,moonL);
+  const nakshatra=getNakshatra(moonL);
+  const yoga=getYoga(sunL,moonL);
+  const karana=getKarana(sunL,moonL);
+  const ss=getSunriseSunset(jd);
+  const rahuKalam=getRahuKalam(weekday,ss.riseH,ss.setH);
+  const gulikaKalam=getGulikaKalam(weekday,ss.riseH,ss.setH);
+  const yamagandam=getYamagandam(weekday,ss.riseH,ss.setH);
+  const abhijit=getAbhijit(ss.riseH,ss.setH);
+  const brahma=getBrahma(ss.riseH);
+  const nallaNeramArr=NALLA_NERAM_TM[weekday]||[];
+  const specials=getAuspiciousDays(tithi,nakshatra,weekday);
+  
+  const tamilMonthIdx=getTamilSolarMonth(sunL);
+  const tamilMonth=TAMIL_RASHI_MONTHS[tamilMonthIdx];
+  
+  // Tamil year calculation (Vikrama Samvat approximation)
+  const tamilYearBase=y-78+(mo>=4?1:0);
+  const tamilYearNames=['பிரபவ','விபவ','சுக்ல','பிரமோதூத','பிரஜோத்பத்தி','ஆங்கீரஸ','ஸ்ரீமுக','பவ','யுவ','தாது','ஈஸ்வர','வெகுதான்ய','பிரமாதி','விக்ரம','விஷு','சித்திரபாணு','சுபாணு','தாரண','பார்த்திப','வியய','சர்வஜித்','சர்வதாரி','விரோதி','விகிருதி','கர','நந்தன','விஜய','ஜய','மன்மத','துர்முகி','ஹேவிளம்பி','விளம்பி','விகாரி','சார்வரி','ப்லவ','சுபக்ருது','சோபக்ருது','குரோதி','விஸ்வாவசு','பராபவ','ப்லவங்க','கீலக','சௌம்ய','சாதாரண','விரோதக்ருது','பரிதாபி','பிரமாதீச','ஆனந்த','ராக்ஷஸ','நள','பிங்கள','காளயுக்தி','சித்தார்த்தி','ரௌத்திரி','துர்மதி','துந்துபி','ருத்ரோத்காரி','ரக்தாக்ஷி','குரோதன','க்ஷய'];
+  const tamilYearName=tamilYearNames[(tamilYearBase-1)%60]||'';
+  
+  return{
+    date,weekday,
+    vaaram:{en:VAARAMS_EN[weekday],tm:VAARAMS_TM[weekday],short:VAARAMS_SHORT[weekday]},
+    tithi,nakshatra,yoga,karana,
+    tamilMonth,tamilYearName,tamilYearNum:tamilYearBase,
+    sunrise:ss.rise,sunset:ss.set,riseH:ss.riseH,setH:ss.setH,
+    rahuKalam,gulikaKalam,yamagandam,abhijit,brahma,
+    nallaNeramArr,specials,
+    sunL,moonL
+  };
+}
+
+// Cache for computed panchangs
+const panchCalcCache={};
+function getPanchang(date){
+  const key=getKey(date);
+  if(!panchCalcCache[key])panchCalcCache[key]=calcPanchang(date);
+  return panchCalcCache[key];
+}
+
+// ── AUSPICIOUS DAY ALERTS ──
+const ALERT_KEY='dt_ausp_alerts';
+function checkAuspiciousAlerts(){
+  if(!('Notification'in window)||Notification.permission!=='granted')return;
+  const now=new Date();
+  const fired=new Set(JSON.parse(localStorage.getItem(ALERT_KEY)||'[]'));
+  const newFired=[];
+  
+  // Check today and tomorrow
+  for(let delta=0;delta<=1;delta++){
+    const checkDate=new Date(now);
+    checkDate.setDate(checkDate.getDate()+delta);
+    const p=getPanchang(checkDate);
+    
+    p.specials.forEach(sp=>{
+      const alertKey6am=getKey(checkDate)+'_'+sp.name+'_6am';
+      const alertKey6pm=getKey(checkDate)+'_'+sp.name+'_preveve';
+      
+      const h=now.getHours(),mi=now.getMinutes();
+      const nowMins=h*60+mi;
+      
+      if(delta===0){
+        // Same day 6am alert (±15 min window)
+        const target6am=6*60;
+        if(!fired.has(alertKey6am)&&nowMins>=target6am&&nowMins<target6am+15){
+          fireNotif(sp.icon+' '+sp.name+' Today',
+            sp.tm+' — Today is '+sp.name+'! ('+checkDate.toDateString()+')');
+          newFired.push(alertKey6am);
+        }
+      } else {
+        // Previous evening 6pm alert for tomorrow
+        const target6pm=18*60;
+        if(!fired.has(alertKey6pm)&&nowMins>=target6pm&&nowMins<target6pm+15){
+          fireNotif(sp.icon+' '+sp.name+' Tomorrow',
+            sp.tm+' — Tomorrow ('+checkDate.toDateString()+') is '+sp.name+'!');
+          newFired.push(alertKey6pm);
+        }
+      }
+    });
+  }
+  
+  if(newFired.length){
+    const all=[...fired,...newFired].slice(-500);
+    localStorage.setItem(ALERT_KEY,JSON.stringify(all));
+  }
+}
+// Check every minute for auspicious alerts
+setInterval(checkAuspiciousAlerts,60000);
+
+// ── CALENDAR RENDERING ──
+const TAMIL_MONTHS_LIST=['சித்திரை','வைகாசி','ஆனி','ஆடி','ஆவணி','புரட்டாசி','ஐப்பசி','கார்த்திகை','மார்கழி','தை','மாசி','பங்குனி'];
+const TAMIL_MONTHS_EN=['Chithirai','Vaikasi','Aani','Aadi','Aavani','Purattasi','Aippasi','Karthigai','Margazhi','Thai','Maasi','Panguni'];
+const GREG_MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+let calViewDate=new Date();
+let calDayDate=new Date();
+
+function switchCalView(name,btn){
+  document.querySelectorAll('.cal-view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.cal-vtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('calv-'+name).classList.add('active');
+  if(btn)btn.classList.add('active');
+  else{const b=document.getElementById('cvt-'+name);if(b)b.classList.add('active');}
+  if(name==='month')renderCalMonth();
+  if(name==='day')renderCalDay();
+  if(name==='panch')renderPanchFull(calDayDate);
+}
+
+function calMonthShift(delta){
+  calViewDate=new Date(calViewDate.getFullYear(),calViewDate.getMonth()+delta,1);
+  renderCalMonth();
+  // Auto-fetch if navigating to uncached month
+  const y=calViewDate.getFullYear(),m=calViewDate.getMonth();
+  const mk=`${y}-${String(m+1).padStart(2,'0')}`;
+  // Auto-fetch if navigating to uncached month — only on HTTPS
+  if(!monthApiCache[mk] && location.protocol==='https:') setTimeout(()=>fetchMonthPanchang(),300);
+}
+function calDayShift(delta){
+  const d=new Date(calDayDate);d.setDate(d.getDate()+delta);
+  calDayDate=d;
+  renderCalDay();
+}
+function calSelectDay(y,m,d){
+  calDayDate=new Date(y,m,d);
+  switchCalView('day',null);
+}
+
+
+
+
+function addReminderFromCal(label,isoDateTime){
+  // Add to daily reminders and switch to daily/reminders
+  const time=isoDateTime.slice(0,16);
+  const dateStr=isoDateTime.split('T')[0];
+  const d=new Date(dateStr);
+  const k=getKey(d);
+  if(!data[k])data[k]={todos:[],reminders:[],expenses:[]};
+  data[k].reminders.unshift({text:'📅 '+label,time,done:false,id:Date.now()});
+  save();
+  currentDate=d;
+  switchMode('daily',null);
+  setTimeout(()=>switchDP('reminders',null,null),200);
+  toast('🔔 Reminder added!');
+}
+
+// Called from the day view's inline reminder form
+function addReminderFromDayView(){
+  const textEl=document.getElementById('calRemText');
+  const feedbackEl=document.getElementById('calRemFeedback');
+  const text=textEl.value.trim();
+  if(!text){toast('Please enter reminder text');return;}
+
+  // Build time from AM/PM selectors
+  let h=parseInt(document.getElementById('calRemHour').value||'6');
+  const min=document.getElementById('calRemMin').value||'00';
+  const ampm=document.getElementById('calRemAmPm').value||'AM';
+  if(ampm==='PM'&&h!==12)h+=12;
+  if(ampm==='AM'&&h===12)h=0;
+  const timeStr=String(h).padStart(2,'0')+':'+min;
+
+  const d=calDayDate;
+  const dateStr=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  const isoTime=`${dateStr}T${timeStr}`;
+  const k=getKey(d);
+
+  if(!data[k])data[k]={todos:[],reminders:[],expenses:[]};
+  data[k].reminders.unshift({text,time:isoTime,done:false,id:Date.now()});
+  save();
+  textEl.value='';
+
+  if(feedbackEl){
+    const dayLabel=d.toLocaleDateString('en-IN',{weekday:'short',month:'short',day:'numeric'});
+    feedbackEl.textContent=`✓ Set for ${dayLabel} at ${timeStr} ${ampm}`;
+    feedbackEl.style.display='block';
+    setTimeout(()=>{feedbackEl.style.display='none';},3000);
+  }
+  toast('🔔 Reminder saved!');
+}
+
+// Today button in day view
+function calGoToday(){
+  calDayDate=new Date();
+  renderCalDay();
+}
+
+
+/* ══════════════════════════════════
+   NOTIFICATIONS
+══════════════════════════════════ */
+async function requestNotifPerm(){
+  if(!('Notification'in window))return false;
+  if(Notification.permission==='granted')return true;
+  if(Notification.permission==='denied')return false;
+  return(await Notification.requestPermission())==='granted';
+}
+function fireNotif(title,body){
+  if(!('Notification'in window)||Notification.permission!=='granted')return;
+  const n=new Notification(title,{body,tag:'dailytracker'});
+  n.onclick=()=>{window.focus();n.close();};setTimeout(()=>n.close(),8000);
+}
+function checkReminders(){
+  const now=new Date(),fired=JSON.parse(localStorage.getItem('dt_fired')||'[]');
+  Object.values(data).forEach(day=>{(day.reminders||[]).forEach(r=>{
+    if(fired.includes(r.id)||r.done)return;
+    const diff=now-new Date(r.time);
+    if(diff>=0&&diff<120000){fireNotif('🔔 Reminder',r.text);fired.push(r.id);localStorage.setItem('dt_fired',JSON.stringify(fired.slice(-200)));}
+  });});
+}
+
+/* ══════════════════════════════════
+   UTILITIES & INIT
+══════════════════════════════════ */
+function esc(s){if(s==null)return'';const d=document.createElement('div');d.textContent=String(s);return d.innerHTML;}
+
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'||e.shiftKey)return;
+  const id=document.activeElement.id;
+  if(id==='todoInput')addTodo();
+  else if(id==='remInput')addReminder();
+  else if(id==='expDesc'||id==='expAmt')addExpense();
+  else if(id==='phoneName'||id==='phoneNumber'||id==='phoneTag')addPhone();
+  else if(id==='noteInput'||id==='buyQty')addBuyItem();
+  else if(id==='linkTitle'||id==='linkUrl')addLink();
+  else if(id==='modalText')saveEdit();
+});
+document.getElementById('editModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function renderDailyScreen(){
+  document.getElementById('datePill').textContent=formatDate(currentDate);
+  calDayDate=new Date(currentDate);
+  renderTodos();renderReminders();renderExpenses();renderStats();
+  document.getElementById('summaryResult').style.display='none';
+  document.getElementById('panchDateLbl').textContent=formatDate(currentDate);
+}
+function renderAll(){
+  renderDailyScreen();renderPhones();renderBuyList();renderLinks();
+  // Ensure correct panels visible on load
+  switchCP('phones',null,null);
+  switchDP('tasks',null,null);
+}
+window.addEventListener('resize',()=>{
+  document.getElementById('datePill').textContent=formatDate(currentDate);
+});
+
+/* ══════════════════════════════════
+   CLAUDE API — FETCH FULL MONTH
+   One call for all 30 days, cached
+══════════════════════════════════ */
+const monthApiCache = {}; // key: "YYYY-MM" → {days: {DD: {...}}}
+
+async function fetchMonthPanchang() {
+  // API only works on HTTPS (GitHub Pages). Local file gives 401.
+  if(location.protocol!=='https:' && location.hostname!=='localhost'){
+    const statusEl=document.getElementById('fetchMonthStatus');
+    if(statusEl) statusEl.innerHTML='<span style="color:var(--amber)">⚠ Panchang API needs GitHub Pages (HTTPS). <a href="https://prasanna-2020.github.io/daily-tracker" target="_blank" style="color:var(--ca)">Open hosted version →</a></span>';
+    return;
+  }
+
+  const y = calViewDate.getFullYear(), m = calViewDate.getMonth();
+  const monthKey = `${y}-${String(m+1).padStart(2,'0')}`;
+
+  const btnEl = document.getElementById('fetchMonthBtn');
+  const statusEl = document.getElementById('fetchMonthStatus');
+  const gridEl = document.getElementById('calGrid');
+
+  if (monthApiCache[monthKey]) {
+    if(btnEl) { btnEl.disabled=false; btnEl.textContent='🔄 Refresh'; }
+    if(statusEl) statusEl.textContent='✅ '+Object.keys(monthApiCache[monthKey].days||{}).length+' days cached';
+    renderCalMonth();
+    return;
+  }
+
+  if(btnEl) { btnEl.disabled=true; btnEl.textContent='⏳ Loading...'; }
+  if(statusEl) statusEl.innerHTML='<span style="color:var(--ta)">🪔 Fetching full month panchang from Claude API...</span>';
+  // Show loading overlay on grid
+  if(gridEl) gridEl.style.opacity='0.4';
+
+  const GREG_MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const daysInMonth = new Date(y, m+1, 0).getDate();
+  const monthName = GREG_MONTHS_SHORT[m];
+
+  const prompt = `You are an expert Tamil Panchangam (பஞ்சாங்கம்) calculator for Chennai, Tamil Nadu, India (lat 13.0827°N, lon 80.2707°E, IST UTC+5:30).
+
+Provide ACCURATE panchangam for ALL ${daysInMonth} days of ${monthName} ${y}.
+
+LANGUAGE RULE: Tamil script FIRST, English in brackets. Example: "ரோகிணி (Rohini)", "சுக்ல பக்ஷம் (Shukla Paksha)"
+
+Return ONLY a valid JSON object with NO markdown fences, NO preamble, NO explanation:
+{
+  "days": {
+    "1": {
+      "tithi": "பிரதமை (Prathama)",
+      "tithi_num": 1,
+      "paksha": "சுக்ல பக்ஷம் (Shukla Paksha)",
+      "nakshatra": "அஸ்வினி (Ashwini)",
+      "yoga": "விஷ்கம்ப (Vishkambha)",
+      "karana": "கிம்ஸ்துக்ன (Kimstughna)",
+      "sunrise": "06:12",
+      "sunset": "18:28",
+      "rahu_start": "10:30",
+      "rahu_end": "12:00",
+      "gulika_start": "07:30",
+      "gulika_end": "09:00",
+      "yama_start": "13:30",
+      "yama_end": "15:00",
+      "abhijit_start": "11:48",
+      "abhijit_end": "12:36",
+      "brahma_start": "04:36",
+      "brahma_end": "05:24",
+      "nalla_neram": "காலை 9:00-10:30, மாலை 4:30-6:00",
+      "special": "Ekadasi",
+      "special_tm": "ஏகாதசி",
+      "special_icon": "🙏",
+      "festivals": ""
+    },
+    "2": { ... same structure ... },
+    ... continue for ALL ${daysInMonth} days ...
+  },
+  "tamil_month": "சித்திரை (Chithirai)",
+  "year_name": "பராபவ (Parabava)",
+  "year_num": 2082
+}
+
+Auspicious day detection rules:
+- special="Ekadasi", special_tm="ஏகாதசி", icon="🙏" → 11th tithi (both pakshas)
+- special="Panchami", special_tm="பஞ்சமி", icon="⭐" → 5th tithi
+- special="Krittikai", special_tm="கார்த்திகை", icon="🔥" → when nakshatra is Krittika
+- special="Pradosham", special_tm="பிரதோஷம்", icon="✨" → 13th tithi
+- special="Pournami", special_tm="பௌர்ணமி", icon="🌕" → 15th tithi Shukla Paksha (full moon)
+- special="Amavasai", special_tm="அமாவாசை", icon="🌑" → 15th tithi Krishna Paksha (new moon)
+- Leave special="" if none apply
+
+Nalla Neram by weekday (IST, Chennai):
+Sun: காலை 7:30-9:00, மாலை 4:30-6:00
+Mon: காலை 6:00-7:30, பகல் 1:30-3:00
+Tue: காலை 9:00-10:30, மாலை 6:00-7:30
+Wed: காலை 7:30-9:00, பகல் 12:00-1:30
+Thu: காலை 6:00-7:30, பகல் 3:00-4:30
+Fri: காலை 10:30-12:00, மாலை 4:30-6:00
+Sat: காலை 9:00-10:30, மாலை 3:00-4:30
+
+Be astronomically accurate. Include ALL ${daysInMonth} days. JSON only.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 12000,
+        system: 'You are an expert Tamil Panchangam calculator for Chennai, India. Return ONLY valid JSON. Tamil script first, English in brackets. No markdown. No preamble. No explanation.',
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!res.ok) {
+      const t = await res.text();
+      throw new Error(`API ${res.status}: ${t.slice(0,200)}`);
+    }
+
+    const json = await res.json();
+    if (json.error) throw new Error(json.error.message || 'API error');
+
+    let raw = (json.content?.[0]?.text || '').trim();
+    // Strip any markdown fences
+    raw = raw.replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/\s*```$/,'').trim();
+    if (!raw.startsWith('{')) throw new Error('Not JSON: ' + raw.slice(0,100));
+
+    const parsed = JSON.parse(raw);
+    const daysLoaded = Object.keys(parsed.days||{}).length;
+    if (daysLoaded < 20) throw new Error(`Only ${daysLoaded} days returned, expected ${daysInMonth}`);
+
+    monthApiCache[monthKey] = parsed;
+
+    // Persist to localStorage (keep last 6 months)
+    try {
+      const saved = JSON.parse(localStorage.getItem('dt_panchcache') || '{}');
+      saved[monthKey] = parsed;
+      const keys = Object.keys(saved).sort();
+      while (keys.length > 6) { delete saved[keys.shift()]; }
+      localStorage.setItem('dt_panchcache', JSON.stringify(saved));
+    } catch(e) {}
+
+    if(statusEl) statusEl.textContent = `✅ ${daysLoaded} days loaded · Cached forever`;
+    if(btnEl) { btnEl.disabled=false; btnEl.textContent='🔄 Refresh'; }
+    if(gridEl) gridEl.style.opacity='1';
+    renderCalMonth();
+
+    // Trigger email alerts for auspicious days this month
+    checkAndSendAuspiciousAlerts(parsed, y, m);
+
+  } catch (err) {
+    if(statusEl) statusEl.innerHTML=`<span style="color:var(--rose)">⚠ ${esc(err.message)}</span>`;
+    if(btnEl) { btnEl.disabled=false; btnEl.textContent='🔄 Retry'; }
+    if(gridEl) gridEl.style.opacity='1';
+    console.error('Panchang fetch error:', err);
+  }
+}
+
+// Load cached panchang from localStorage on startup
+(function loadPanchCache() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('dt_panchcache') || '{}');
+    Object.assign(monthApiCache, saved);
+  } catch(e) {}
+})();
+
+function getApiPanchForDay(date) {
+  const y = date.getFullYear(), m = date.getMonth();
+  const monthKey = `${y}-${String(m+1).padStart(2,'0')}`;
+  const dayKey = String(date.getDate());
+  return monthApiCache[monthKey]?.days?.[dayKey] || null;
+}
+
+/* ══════════════════════════════════
+   ENHANCED renderCalMonth — merges
+   offline engine + API data
+══════════════════════════════════ */
+function renderCalMonth() {
+  const y = calViewDate.getFullYear(), m = calViewDate.getMonth();
+  const monthKey = `${y}-${String(m+1).padStart(2,'0')}`;
+  const hasApi = !!monthApiCache[monthKey];
+
+  const mid = new Date(y, m, 15);
+  const p15 = getPanchang(mid);
+  const tmMonthIdx = getTamilSolarMonth(p15.sunL);
+  const apiMeta = monthApiCache[monthKey];
+
+  const monthLabel = apiMeta
+    ? `<div style="font-size:15px;font-weight:700;color:var(--ta)">${apiMeta.tamil_month||TAMIL_MONTHS_LIST[tmMonthIdx]}</div><div style="font-size:11px;color:var(--text-dim)">${apiMeta.year_name||p15.tamilYearName} · ${GREG_MONTHS[m]} ${y}</div>`
+    : `<div style="font-size:15px;font-weight:700;color:var(--ta)">${TAMIL_MONTHS_LIST[tmMonthIdx]} ${p15.tamilYearName}</div><div style="font-size:12px;color:var(--text-dim)">${GREG_MONTHS[m]} ${y}</div>`;
+
+  document.getElementById('calMonthTitle').innerHTML = monthLabel;
+
+  // Fetch button row
+  const fetchStatus = hasApi ? '✅ Fetched' : '🪔 Fetch Month';
+  document.getElementById('calFetchRow').innerHTML = `
+    <button id="fetchMonthBtn" class="cal-fetch-btn" onclick="fetchMonthPanchang()" ${hasApi?'':''}>${hasApi?'🔄 Refresh':'🪔 Fetch Full Month'}</button>
+    <span id="fetchMonthStatus" style="font-size:11px;color:var(--text-faint)">${hasApi?'✅ Cached — click Refresh to update':''}</span>`;
+
+  const firstDay = new Date(y, m, 1).getDay();
+  const daysInMonth = new Date(y, m+1, 0).getDate();
+  const todayKey = getKey(new Date());
+
+  let html = '';
+  for (let i = 0; i < firstDay; i++) html += `<div class="cal-cell other-month"></div>`;
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const d = new Date(y, m, day);
+    const k = getKey(d);
+    const p = getPanchang(d); // offline base
+    const api = getApiPanchForDay(d); // API enrichment
+
+    const isToday = k === todayKey;
+    const isSun = d.getDay() === 0, isSat = d.getDay() === 6;
+    const dayData = data[k] || {};
+    const hasTasks = (dayData.todos||[]).filter(t=>!t.carriedFrom).length > 0;
+    const hasExp = (dayData.expenses||[]).filter(e=>!e.carriedFrom).length > 0;
+
+    // Use API data if available, fallback to offline
+    const tithiNum = api ? api.tithi_num : p.tithi.num;
+    const nakshTm = api ? (api.nakshatra||'').split('(')[0].trim() : p.nakshatra.tm.slice(0,5);
+    const rahuStr = api ? `${api.rahu_start}-${api.rahu_end}` : `${p.rahuKalam.start}-${p.rahuKalam.end}`;
+    const nallaStr = api ? (api.nalla_neram||'').split(',')[0] : (p.nallaNeramArr[0]||'');
+    const specialIcon = api ? (api.special_icon||'') : (p.specials[0]?.icon||'');
+    const specialTm = api ? (api.special_tm||api.special||'') : (p.specials[0]?.tm||'');
+    const specialColor = p.specials[0]?.color || 'var(--ta)';
+    const hasFestival = api ? !!api.festivals : false;
+
+    const cls = ['cal-cell', isToday?'today':'', isSun?'sunday':'', isSat?'saturday':''].filter(Boolean).join(' ');
+
+    let specialBadge = '';
+    if (specialIcon || specialTm) {
+      specialBadge = `<div class="cal-special-badge" style="background:${specialColor}20;color:${specialColor};border-color:${specialColor}40">${specialIcon} ${specialTm}</div>`;
+    }
+    if (hasFestival && api?.festivals && !specialTm) {
+      specialBadge = `<div class="cal-special-badge" style="background:rgba(16,185,129,.15);color:var(--emerald);border-color:rgba(16,185,129,.3)">🎉 ${api.festivals.slice(0,12)}</div>`;
+    }
+
+    let dots = '';
+    if (hasTasks) dots += `<span class="cal-dot cal-dot-task"></span>`;
+    if (hasExp) dots += `<span class="cal-dot cal-dot-exp"></span>`;
+
+    html += `<div class="${cls}" onclick="calSelectDay(${y},${m},${day})">
+      <div class="cal-cell-top">
+        <span class="cal-num${isSun?' c-sun':isSat?' c-sat':''}">${day}</span>
+        <span class="cal-tamil-day">${tithiNum}</span>
+      </div>
+      <div class="cal-naksh">${nakshTm}</div>
+      ${specialBadge}
+      <div class="cal-rahu-tiny">ராகு ${rahuStr}</div>
+      ${nallaStr?`<div class="cal-nalla-tiny">நல்ல ${nallaStr.replace('காலை','கா').replace('மாலை','மா')}</div>`:''}
+      ${dots?`<div class="cal-dots">${dots}</div>`:''}
+    </div>`;
+  }
+
+  const total = firstDay + daysInMonth;
+  const rem = total % 7 === 0 ? 0 : 7 - (total % 7);
+  for (let i = 0; i < rem; i++) html += `<div class="cal-cell other-month"></div>`;
+
+  document.getElementById('calGrid').innerHTML = html;
+  document.getElementById('calMonthLegend').innerHTML = `
+    <div class="cal-legend-row">
+      <span class="cl-box today-box"></span>Today
+      <span class="cl-dot cal-dot-task" style="margin-left:10px"></span>Tasks
+      <span class="cl-dot cal-dot-exp" style="margin-left:10px"></span>Expenses
+      <span style="margin-left:10px;color:var(--ta)">🙏 Auspicious</span>
+      ${!hasApi?'<span style="margin-left:10px;color:var(--text-faint)">· Tap "Fetch Month" for full detail</span>':''}
+    </div>`;
+}
+
+// Override renderCalMonth with enhanced version
+
+/* ══════════════════════════════════
+   ENHANCED renderCalDay — uses API
+══════════════════════════════════ */
+function renderCalDay() {
+  const p = getPanchang(calDayDate);
+  const api = getApiPanchForDay(calDayDate);
+  const k = getKey(calDayDate);
+
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  document.getElementById('calDayTitle').innerHTML =
+    `<div class="cdt-date${calDayDate.getDay()===0?' c-sun':calDayDate.getDay()===6?' c-sat':''}">${calDayDate.getDate()}</div>
+     <div class="cdt-info">
+       <div class="cdt-month">${GREG_MONTHS[calDayDate.getMonth()]} ${calDayDate.getFullYear()}</div>
+       <div class="cdt-weekday">${api?api.nakshatra.split('(')[0]:p.vaaram.tm} · ${dayNames[calDayDate.getDay()]}</div>
+     </div>`;
+
+  const tamilMIdx = getTamilSolarMonth(p.sunL);
+  const tamilMonthStr = api ? (monthApiCache[`${calDayDate.getFullYear()}-${String(calDayDate.getMonth()+1).padStart(2,'0')}`]?.tamil_month || TAMIL_MONTHS_LIST[tamilMIdx]) : TAMIL_MONTHS_LIST[tamilMIdx];
+  const tithiStr = api ? api.tithi : p.tithi.tm;
+  const paksha = api ? api.paksha : p.tithi.paksha;
+
+  document.getElementById('calDayTamilDate').innerHTML =
+    `<span style="color:var(--ta);font-weight:700">${tamilMonthStr} ${api?api.tithi_num:p.tithi.num}</span>
+     &nbsp;·&nbsp;${paksha}&nbsp;·&nbsp;${p.tamilYearName}`;
+
+  // Specials
+  const specials = p.specials;
+  let specialsHTML = '';
+  if (api && api.special) {
+    specialsHTML = `<div class="cal-special-banner" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:var(--ta)">
+      ${api.special_icon} <strong>${api.special}</strong> &nbsp; ${api.special_tm}
+    </div>`;
+  } else {
+    specials.forEach(s => {
+      specialsHTML += `<div class="cal-special-banner" style="background:${s.color}18;border-color:${s.color}40;color:${s.color}">
+        ${s.icon} <strong>${s.name}</strong> &nbsp; ${s.tm}
+      </div>`;
+    });
+  }
+  if (api?.festivals) specialsHTML += `<div class="cal-special-banner" style="background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);color:var(--emerald)">🎉 ${esc(api.festivals)}</div>`;
+  document.getElementById('calDaySpecials').innerHTML = specialsHTML;
+
+  // Panchang grid
+  const sunrise = api ? api.sunrise : p.sunrise;
+  const sunset = api ? api.sunset : p.sunset;
+  const nakshatra = api ? api.nakshatra : `${p.nakshatra.tm} (${p.nakshatra.en})`;
+  const yoga = api ? api.yoga : p.yoga;
+  const karana = api ? api.karana : p.karana;
+  const vaaram = p.vaaram.tm + ` (${p.vaaram.short})`;
+
+  document.getElementById('calDayPanchGrid').innerHTML = `
+    <div class="pdg-row">
+      <div class="pdg-cell"><div class="pdg-k">தீதி (Tithi)</div><div class="pdg-v ta-accent">${tithiStr}<br><small>${paksha}</small></div></div>
+      <div class="pdg-cell"><div class="pdg-k">நட்சத்திரம்</div><div class="pdg-v">${nakshatra}</div></div>
+    </div>
+    <div class="pdg-row">
+      <div class="pdg-cell"><div class="pdg-k">யோகம் (Yoga)</div><div class="pdg-v">${yoga}</div></div>
+      <div class="pdg-cell"><div class="pdg-k">கரணம் (Karana)</div><div class="pdg-v">${karana}</div></div>
+    </div>
+    <div class="pdg-row">
+      <div class="pdg-cell"><div class="pdg-k">வாரம்</div><div class="pdg-v">${vaaram}</div></div>
+      <div class="pdg-cell"><div class="pdg-k">நல்ல நேரம்</div><div class="pdg-v good" style="font-size:11px">${api?api.nalla_neram:(p.nallaNeramArr.join(', '))}</div></div>
+    </div>
+    <div class="pdg-row">
+      <div class="pdg-cell"><div class="pdg-k">சூரிய உதயம்</div><div class="pdg-v good">🌅 ${sunrise}</div></div>
+      <div class="pdg-cell"><div class="pdg-k">சூரிய அஸ்தமனம்</div><div class="pdg-v">🌇 ${sunset}</div></div>
+    </div>`;
+
+  // Timings
+  const rahu = api ? {start:api.rahu_start,end:api.rahu_end} : p.rahuKalam;
+  const gulika = api ? {start:api.gulika_start,end:api.gulika_end} : p.gulikaKalam;
+  const yama = api ? {start:api.yama_start,end:api.yama_end} : p.yamagandam;
+  const abhijit = api ? {start:api.abhijit_start,end:api.abhijit_end} : p.abhijit;
+  const brahma = api ? {start:api.brahma_start,end:api.brahma_end} : p.brahma;
+
+  // Nalla Neram split into morning/evening
+  const nallaArr = api ? (api.nalla_neram||'').split(',').map(s=>s.trim()).filter(Boolean) : p.nallaNeramArr;
+  const nallaKaalai = nallaArr.find(n=>n.includes('காலை')||n.includes('kaalai'))||nallaArr[0]||'';
+  const nallaMaalai = nallaArr.find(n=>n.includes('மாலை')||n.includes('maalai'))||nallaArr[1]||'';
+
+  // Good times FIRST, then bad times (Change 6)
+  document.getElementById('calDayTimings').innerHTML = `
+    <div class="time-row good-time">
+      <div class="tr-dot good"></div>
+      <div class="tr-info"><div class="tr-name">பிரம்ம முஹூர்த்தம்</div><div class="tr-time">${brahma.start} – ${brahma.end}</div><div class="tr-desc">ஆன்மீக பயிற்சிக்கு சிறந்தது</div></div>
+    </div>
+    <div class="time-row good-time">
+      <div class="tr-dot good"></div>
+      <div class="tr-info"><div class="tr-name">அபிஜித் முஹூர்த்தம்</div><div class="tr-time">${abhijit.start} – ${abhijit.end}</div><div class="tr-desc">மிகவும் சுபமான நேரம்</div></div>
+    </div>
+    ${nallaKaalai?`<div class="time-row good-time">
+      <div class="tr-dot good"></div>
+      <div class="tr-info"><div class="tr-name">நல்ல நேரம் — காலை</div><div class="tr-time">${nallaKaalai}</div></div>
+    </div>`:''}
+    ${nallaMaalai?`<div class="time-row good-time">
+      <div class="tr-dot good"></div>
+      <div class="tr-info"><div class="tr-name">நல்ல நேரம் — மாலை</div><div class="tr-time">${nallaMaalai}</div></div>
+    </div>`:''}
+    <div style="height:4px;border-top:1px dashed var(--border);margin:8px 0"></div>
+    <div class="time-row bad-time">
+      <div class="tr-dot bad"></div>
+      <div class="tr-info"><div class="tr-name">ராகு காலம் (Rahu Kalam)</div><div class="tr-time">${rahu.start} – ${rahu.end}</div><div class="tr-desc">முக்கியமான செயல்களை தவிர்க்கவும்</div></div>
+
+    </div>
+    <div class="time-row bad-time">
+      <div class="tr-dot bad"></div>
+      <div class="tr-info"><div class="tr-name">குளிகை காலம் (Gulika)</div><div class="tr-time">${gulika.start} – ${gulika.end}</div></div>
+    </div>
+    <div class="time-row bad-time">
+      <div class="tr-dot bad"></div>
+      <div class="tr-info"><div class="tr-name">யமகண்டம் (Yamagandam)</div><div class="tr-time">${yama.start} – ${yama.end}</div></div>
+    </div>`;
+
+  // Chandrastamam detection (Change 2)
+  const chandraSection = document.getElementById('chandraSection');
+  const chandraContent = document.getElementById('chandraContent');
+  if(chandraSection && chandraContent){
+    // Chandrastamam = moon in 8th house from janma rashi
+    // Approximation: certain nakshatras traditionally associated
+    const chandraNames=['Ashlesha','Magha','Purva Phalguni','Hasta','Chitra',
+      'Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha',
+      'Shravana','Dhanishta'];
+    const nakEn = p.nakshatra.en;
+    const isChandra = chandraNames.some(n=>nakEn.toLowerCase().includes(n.toLowerCase()));
+    const apiNak = api ? api.nakshatra : '';
+    // Also check if API says chandrastamam
+    const apiChandra = apiNak.toLowerCase().includes('ashlesha') ||
+      apiNak.toLowerCase().includes('magha');
+    if(isChandra || apiChandra){
+      chandraSection.style.display='block';
+      chandraContent.innerHTML=`<div style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);border-radius:8px;padding:12px;font-size:13px;color:var(--violet)">
+        <strong>⚠ சந்திராஷ்டமம்</strong> — நட்சத்திரம்: ${p.nakshatra.tm}<br>
+        <span style="font-size:12px;color:var(--text-faint);margin-top:4px;display:block">முக்கியமான முடிவுகள், பயணம், நிதி பரிவர்த்தனைகளை தவிர்க்கவும். தியானம் &amp; பிரார்த்தனைக்கு ஏற்றது.</span>
+      </div>`;
+    } else {
+      chandraSection.style.display='none';
+    }
+  }
+}
+
+
+/* ══════════════════════════════════
+   EMAIL ALERTS via Web3Forms
+   One access key — no backend needed
+══════════════════════════════════ */
+const SETTINGS_KEY = 'dt_settings';
+let appSettings = {web3formsKey:'', userEmail:'', alertsEnabled:false};
+try { Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}')); } catch(e) {}
+function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); }
+
+function openSettings() {
+  const emailEl = document.getElementById('settEmail');
+  const keyEl = document.getElementById('settW3Key');
+  if(emailEl) emailEl.value = appSettings.userEmail||'';
+  if(keyEl) keyEl.value = appSettings.web3formsKey||'';
+  document.getElementById('settingsModal').classList.add('open');
+}
+function saveSettingsModal() {
+  appSettings.userEmail = document.getElementById('settEmail').value.trim();
+  appSettings.web3formsKey = document.getElementById('settW3Key').value.trim();
+  appSettings.alertsEnabled = true; // always enabled when email+key are set
+  saveSettings();
+  document.getElementById('settingsModal').classList.remove('open');
+  toast('⚙️ Settings saved!');
+}
+
+async function sendEmailAlert(subject, body) {
+  if (!appSettings.web3formsKey || !appSettings.userEmail) return;
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        access_key: appSettings.web3formsKey,
+        subject: subject,
+        from_name: 'DailyTracker Pro 🪔',
+        email: appSettings.userEmail,
+        message: body
+      })
+    });
+  } catch(e) { console.warn('Web3Forms error:', e); }
+}
+
+function checkAndSendAuspiciousAlerts(monthData, y, m) {
+  if (!appSettings.web3formsKey || !appSettings.userEmail) return;
+  const daysInMonth = new Date(y, m+1, 0).getDate();
+  for (let day = 1; day <= daysInMonth; day++) {
+    const d = new Date(y, m, day);
+    const dayStr = String(day);
+    const api = monthData.days?.[dayStr];
+    if (!api || !api.special) continue;
+
+    const todayDate = new Date();
+    const diff = Math.floor((d - todayDate) / 86400000);
+
+    // Fire email 1 day before (evening) or same day
+    if (diff === 0 || diff === 1) {
+      const label = diff === 0 ? 'Today' : 'Tomorrow';
+      const subject = `${api.special_icon} ${api.special} ${label}!`;
+      const body = `${api.special_tm} — ${api.special} is ${label.toLowerCase()} (${d.toDateString()}).\n\nRahu Kalam: ${api.rahu_start}–${api.rahu_end}\nNalla Neram: ${api.nalla_neram}\nSunrise: ${api.sunrise}`;
+      sendEmailAlert(subject, body);
+    }
+  }
+}
+
+// Enhanced check for auspicious alerts — also sends email
+const _origCheckAusp = checkAuspiciousAlerts;
+function checkAuspiciousAlerts() {
+  _origCheckAusp();
+  // Email alert for today's specials
+  if (!appSettings.web3formsKey || !appSettings.userEmail) return;
+  const today = new Date();
+  const p = getPanchang(today);
+  const h = today.getHours();
+  const fired = new Set(JSON.parse(localStorage.getItem('dt_email_fired')||'[]'));
+  p.specials.forEach(sp => {
+    const ek = getKey(today)+'_'+sp.name+'_email';
+    if (!fired.has(ek) && (h === 6 || h === 17)) {
+      sendEmailAlert(`${sp.icon} ${sp.name} Today!`, `${sp.tm} — Today (${today.toDateString()}) is ${sp.name}!`);
+      fired.add(ek);
+    }
+  });
+  if (fired.size) localStorage.setItem('dt_email_fired', JSON.stringify([...fired].slice(-200)));
+}
+
+/* Render Panchang Full view */
+function renderPanchFull(date) {
+  const p = getPanchang(date);
+  const api = getApiPanchForDay(date);
+  const k = getKey(date);
+  const tamilMIdx = getTamilSolarMonth(p.sunL);
+  const monthKey = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}`;
+
+  document.getElementById('panchDateLbl').textContent = date.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+  const specials = p.specials;
+  let specialsHTML = '';
+  if (api && api.special) {
+    specialsHTML = `<div class="panch-alert-banner" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:var(--ta)">
+      ${api.special_icon} <strong>${api.special} · ${api.special_tm}</strong>
+      <button class="slot-add-rem" onclick="addReminderFromCal('${api.special}','${k}T06:00')" style="margin-left:auto">+ Alert</button>
+    </div>`;
+  } else {
+    specials.forEach(s => {
+      specialsHTML += `<div class="panch-alert-banner" style="background:${s.color}18;border-color:${s.color}40;color:${s.color}">
+        ${s.icon} <strong>${s.name} · ${s.tm}</strong>
+        <button class="slot-add-rem" onclick="addReminderFromCal('${s.name}','${k}T06:00')" style="margin-left:auto">+ Alert</button>
+      </div>`;
+    });
+  }
+  if (api?.festivals) specialsHTML += `<div class="panch-alert-banner" style="background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);color:var(--emerald)">🎉 ${esc(api.festivals)}</div>`;
+
+  const tamilMonthStr = monthApiCache[monthKey]?.tamil_month || TAMIL_MONTHS_LIST[tamilMIdx];
+  const tithiStr = api ? api.tithi : p.tithi.tm;
+  const paksha = api ? api.paksha : p.tithi.pakshaTm||p.tithi.paksha;
+  const nakshatra = api ? api.nakshatra : `${p.nakshatra.tm} (${p.nakshatra.en})`;
+  const yoga = api ? api.yoga : p.yoga;
+  const karana = api ? api.karana : p.karana;
+  const rahu = api ? {start:api.rahu_start,end:api.rahu_end} : p.rahuKalam;
+  const gulika = api ? {start:api.gulika_start,end:api.gulika_end} : p.gulikaKalam;
+  const yama = api ? {start:api.yama_start,end:api.yama_end} : p.yamagandam;
+  const abhijit = api ? {start:api.abhijit_start,end:api.abhijit_end} : p.abhijit;
+  const brahma = api ? {start:api.brahma_start,end:api.brahma_end} : p.brahma;
+  const nalla = api ? api.nalla_neram : p.nallaNeramArr.join(', ');
+
+  document.getElementById('panchData').innerHTML = `
+    ${specialsHTML}
+    <div class="panch-grid">
+      <div class="panch-cell panch-full"><div class="panch-key">Tamil Date</div><div class="panch-val special">${tamilMonthStr} ${api?api.tithi_num:p.tithi.num} · ${monthApiCache[monthKey]?.year_name||p.tamilYearName}</div></div>
+      <div class="panch-cell"><div class="panch-key">தீதி (Tithi)</div><div class="panch-val">${tithiStr}</div><div style="font-size:10px;color:var(--text-faint)">${paksha}</div></div>
+      <div class="panch-cell"><div class="panch-key">நட்சத்திரம்</div><div class="panch-val">${nakshatra}</div></div>
+      <div class="panch-cell"><div class="panch-key">யோகம் (Yoga)</div><div class="panch-val">${yoga}</div></div>
+      <div class="panch-cell"><div class="panch-key">கரணம் (Karana)</div><div class="panch-val">${karana}</div></div>
+      <div class="panch-cell"><div class="panch-key">வாரம்</div><div class="panch-val">${p.vaaram.tm} (${p.vaaram.short})</div></div>
+      <div class="panch-cell"><div class="panch-key">சூரிய உதயம்</div><div class="panch-val good">🌅 ${api?api.sunrise:p.sunrise}</div></div>
+      <div class="panch-cell"><div class="panch-key">சூரிய அஸ்தமனம்</div><div class="panch-val">🌇 ${api?api.sunset:p.sunset}</div></div>
+    </div>
+    <div style="background:var(--da-soft);border:1px solid var(--da-border);border-radius:8px;padding:10px 13px;margin-bottom:12px">
+      <div style="font-size:9px;font-family:var(--mono);color:var(--da);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">நல்ல நேரம் · Nalla Neram</div>
+      <div style="font-size:13px;font-weight:600;color:var(--emerald)">${nalla}</div>
+    </div>
+    <div style="font-size:10px;font-family:var(--mono);color:var(--rose);text-transform:uppercase;letter-spacing:.6px;margin:8px 0 6px">⛔ Inauspicious Times</div>
+    <div class="time-slots">
+      <div class="time-slot"><div class="slot-dot bad"></div><div class="slot-info"><div class="slot-name">ராகு காலம்</div><div class="slot-time">${rahu.start} – ${rahu.end}</div></div><button class="slot-add-rem" onclick="addReminderFromCal('Rahu Kalam','${k}T${rahu.start}')">+ Remind</button></div>
+      <div class="time-slot"><div class="slot-dot bad"></div><div class="slot-info"><div class="slot-name">குளிகை காலம்</div><div class="slot-time">${gulika.start} – ${gulika.end}</div></div></div>
+      <div class="time-slot"><div class="slot-dot bad"></div><div class="slot-info"><div class="slot-name">யமகண்டம்</div><div class="slot-time">${yama.start} – ${yama.end}</div></div></div>
+    </div>
+    <div style="font-size:10px;font-family:var(--mono);color:var(--da);text-transform:uppercase;letter-spacing:.6px;margin:8px 0 6px">✅ Auspicious Times</div>
+    <div class="time-slots">
+      <div class="time-slot"><div class="slot-dot good"></div><div class="slot-info"><div class="slot-name">அபிஜித் முஹூர்த்தம்</div><div class="slot-time">${abhijit.start} – ${abhijit.end}</div></div><button class="slot-add-rem" onclick="addReminderFromCal('Abhijit Muhurta','${k}T${abhijit.start}')">+ Remind</button></div>
+      <div class="time-slot"><div class="slot-dot good"></div><div class="slot-info"><div class="slot-name">பிரம்ம முஹூர்த்தம்</div><div class="slot-time">${brahma.start} – ${brahma.end}</div></div></div>
+    </div>`;
+}
+
+
+checkReminders();
+setInterval(checkReminders,30000);
+renderAll();
+</script>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-drag"></div>
+    <div class="modal-title">⚙️ Settings &amp; Alerts</div>
+
+    <!-- Email address -->
+    <div class="modal-row">
+      <div class="modal-lbl">Your Email Address</div>
+      <input class="inp" type="email" id="settEmail" placeholder="ramprasan94@gmail.com" inputmode="email">
+    </div>
+
+    <!-- Auto alert info -->
+    <div style="background:var(--da-soft);border:1px solid var(--da-border);border-radius:10px;padding:12px;margin-bottom:16px;font-size:12px;color:var(--text-dim)">
+      <div style="font-weight:700;color:var(--emerald);margin-bottom:4px">🔔 Alerts are automatic</div>
+      When your email + access key are saved, you will receive alerts automatically for:<br>
+      🙏 Ekadasi &nbsp; ⭐ Panchami &nbsp; 🔥 Krittikai &nbsp; ✨ Pradosham &nbsp; 🌕 Pournami &nbsp; 🌑 Amavasai<br>
+      <span style="color:var(--ta)">📩 Previous evening at 6:00 PM &amp; same day at 6:00 AM</span>
+    </div>
+
+    <!-- Web3Forms key — single field -->
+    <div style="background:var(--ta-soft);border:1px solid var(--ta-border);border-radius:10px;padding:14px;margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="font-size:18px">📨</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--ta);font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px">Web3Forms Access Key</div>
+          <div style="font-size:11px;color:var(--text-faint);margin-top:1px">Free · 250 emails/month · No backend needed</div>
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-lbl">Access Key</div>
+        <input class="inp" type="password" id="settW3Key" placeholder="••••••••-••••-••••-••••-••••••••••••" autocomplete="off">
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:10px 12px;margin-top:8px">
+        <div style="font-size:11px;font-weight:600;color:var(--text-dim);margin-bottom:6px">How to get your key — 2 steps:</div>
+        <div style="font-size:11px;color:var(--text-faint);line-height:1.8">
+          1️⃣ Go to <a href="https://web3forms.com" target="_blank" style="color:var(--ta);font-weight:600">web3forms.com</a><br>
+          2️⃣ Enter your email → click <strong style="color:var(--text)">Get Access Key</strong> → check inbox → copy key → paste above
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="document.getElementById('settingsModal').classList.remove('open')">Cancel</button>
+      <button class="modal-save" onclick="saveSettingsModal()" style="background:var(--ta);color:#000">Save Settings</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
